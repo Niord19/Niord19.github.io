@@ -70,11 +70,22 @@
     
     
     <entry>
-      <title>movie</title>
-      <link href="/movie/index.html"/>
-      <url>/movie/index.html</url>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[/* 一图流 *//* 页脚与头图透明 */#footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
       
     </entry>
     
@@ -92,9 +103,9 @@
     
     
     <entry>
-      <title>music</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -103,9 +114,20 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>movie</title>
+      <link href="/movie/index.html"/>
+      <url>/movie/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>music</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
