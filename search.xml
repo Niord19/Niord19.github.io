@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>【开发日志】网页版定轨下落式音游开发笔记</title>
+      <link href="/2022/12/20/%E3%80%90%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%E3%80%91%E7%BD%91%E9%A1%B5%E7%89%88%E5%AE%9A%E8%BD%A8%E4%B8%8B%E8%90%BD%E5%BC%8F%E9%9F%B3%E6%B8%B8%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%88%B6%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
+      <url>/2022/12/20/%E3%80%90%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%E3%80%91%E7%BD%91%E9%A1%B5%E7%89%88%E5%AE%9A%E8%BD%A8%E4%B8%8B%E8%90%BD%E5%BC%8F%E9%9F%B3%E6%B8%B8%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%88%B6%E4%BD%9C%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文为网页版定轨下落式音游开发笔记，初衷是记录在开发过程中的一些技术问题，类似老船长的航海日志，希望未来能看见到岸的那一天。<br>本项目由ChatGPT作为技术顾问，Niord负责主要推进。</p><details class="folding-tag" ><summary> Javascript的键盘事件监听器 </summary>              <div class='content'>              <p>在 JavaScript 中，可以使用 addEventListener 方法来监听键盘事件。<br>举个例子，如果要在按下 A 键时打印一条消息，可以这样写：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(&quot;keydown&quot;, function(event) &#123;</span><br><span class="line">  if (event.keyCode === 65) &#123;</span><br><span class="line">    console.log(&quot;A 键被按下了！&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br>还可以使用 keyup 事件监听键盘抬起事件，以及 keypress 事件监听键盘敲击事件。</p>              </div>            </details><details class="folding-tag" ><summary> HTML5的Canvas元素 </summary>              <div class='content'>              <p>HTML5 中的 canvas 元素是一个可以使用 JavaScript 在浏览器中绘制图形的元素。<br>使用 canvas 元素需要在 HTML 文档中添加一个 canvas 元素，然后通过 JavaScript 来访问这个元素并绘制图形。<br>例如，下面是一个简单的 canvas 元素：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure><br>这段代码会创建一个 canvas 元素，并设置它的宽度为 200 像素，高度为 100 像素。<br>然后，可以使用 JavaScript 来访问这个 canvas 元素并绘制图形。例如，下面的代码会在 canvas 中绘制一条直线：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var canvas = document.getElementById(&quot;myCanvas&quot;);</span><br><span class="line">var context = canvas.getContext(&quot;2d&quot;);</span><br><span class="line"></span><br><span class="line">context.moveTo(0, 0);</span><br><span class="line">context.lineTo(200, 100);</span><br><span class="line">context.stroke();</span><br></pre></td></tr></table></figure><br>在 canvas 元素中绘制了一条从 (0, 0) 到 (200, 100) 的直线。</p><p>canvas 元素还可以用来显示图片、视频等多媒体内容，或者将 canvas 元素作为图像的来源，从而实现图像处理和转换等功能。</p>              </div>            </details><details class="folding-tag" ><summary> AJAX加载谱面文件 </summary>              <div class='content'>              <p>使用 AJAX（Asynchronous JavaScript and XML） 可以在不重新加载整个页面的情况下，使用 JavaScript 向服务器发送请求并获取响应数据。这样就可以在页面上更新部分内容，而不需要重新加载整个页面。<br>使用 AJAX 的一个常见例子就是在网页中使用搜索框时，可以在输入搜索关键词时实时地将关键词发送到服务器进行搜索，并在搜索结果返回时更新页面上的搜索结果。<br>AJAX 的实现需要使用 JavaScript 的 XMLHttpRequest 对象，以及一些服务器端的技术，如 PHP、Java、ASP.NET 等。<br>下面是一个简单的示例代码，展示了如何使用 AJAX 加载音乐谱面文件：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var request = new XMLHttpRequest();</span><br><span class="line">request.open(&quot;GET&quot;, &quot;music.json&quot;, true);</span><br><span class="line">request.responseType = &quot;json&quot;;</span><br><span class="line">request.onload = function() &#123;</span><br><span class="line">  var musicData = request.response;</span><br><span class="line">  // 在这里处理谱面文件</span><br><span class="line">&#125;;</span><br><span class="line">request.send();</span><br></pre></td></tr></table></figure><br>这段代码中，首先创建了一个 XMLHttpRequest 对象，然后使用 open 方法初始化 HTTP 请求，设置请求方法为 GET，请求地址为 “music.json”，并设置为异步请求。<br>然后设置 responseType 属性为 “json”，表示期望响应数据为 JSON 格式。<br>接下来，设置 onload 属性为一个回调函数，在响应数据返回时执行。在回调函数中，使用 response 属性获取响应数据，并将其赋值给变量 musicData。<br>最后，使用 send 方法发送请求。</p><p>这段代码的意思是：使用 AJAX 发送一个 GET 请求，获取 “music.json” 文件，并在响应数据返回时将其转化为 JSON 格式并保存在变量 musicData 中。</p><p>所以，简单来说，使用 AJAX 加载音乐谱面文件的流程是：<br>1.在服务器端准备一个 JSON 格式的音乐谱面文件。<br>2.使用 JavaScript 的 XMLHttpRequest 对象发送 HTTP 请求，获取该文件。<br>3.在响应数据返回时，将其自动转化为 JSON 格式并保存在变量中。<br>4.使用保存的谱面数据进行游戏的绘制等操作。</p>              </div>            </details>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日志 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> Web开发 </tag>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 音乐游戏 </tag>
+            
+            <tag> 项目 </tag>
+            
+            <tag> 开发日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UIS学习笔记(编写ing)</title>
       <link href="/2022/12/18/UIS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2022/12/18/UIS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
@@ -255,17 +290,6 @@
     
     
     <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -321,6 +345,17 @@
     
     
     <entry>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/js/runtime.js"/>
       <url>/js/runtime.js</url>
@@ -343,9 +378,9 @@
     
     
     <entry>
-      <title>友链中心</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>动漫页</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
@@ -354,9 +389,9 @@
     
     
     <entry>
-      <title>标签页</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>友链中心</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
@@ -376,9 +411,9 @@
     
     
     <entry>
-      <title>动漫页</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>标签页</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
