@@ -8,7 +8,7 @@
       <link href="/2023/01/31/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/01/31/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A007(Article007) --><p>本文将主要记录JavaScript的基础部分，当前是ES6(ECMAscript)规范。</p><h1 id="1-JavaScript简介"><a href="#1-JavaScript简介" class="headerlink" title="1. JavaScript简介"></a>1. JavaScript简介</h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h2><p>H5/CSS3是标记语言，而JavaScipt是脚本语言，是一种运行在浏览器的编程语言。</p><h2 id="1-2-作用"><a href="#1-2-作用" class="headerlink" title="1.2 作用"></a>1.2 作用</h2><ul><li>网页特效 (监听用户行为—网页作出反馈)</li><li>表单验证 (表单数据的合法性判断)</li><li>数据交互 (获取后台的数据, 渲染到前端/vue.js)</li><li>服务端编程 (node.js)</li></ul><h2 id="1-3-组成"><a href="#1-3-组成" class="headerlink" title="1.3 组成"></a>1.3 组成</h2><p>JavaScript由EMCAScript和Web APIs组成。<br>其中，EMCAScript是一套规范，规定了js的核心语法。<br>而APIs可以分为DOM(操作页面元素)和BOM(操作浏览器)两部分。</p><h2 id="1-4-权威手册"><a href="#1-4-权威手册" class="headerlink" title="1.4 权威手册"></a>1.4 权威手册</h2><p>MDN(mdn web docs): <a href="https://developer.mozilla.org/zh-CN/">https://developer.mozilla.org/zh-CN/</a></p><h2 id="1-5-js书写位置"><a href="#1-5-js书写位置" class="headerlink" title="1.5 js书写位置"></a>1.5 js书写位置</h2><ul><li>内部：html文件内部，body标签中的script标签内，跟在html元素后面(放在底部)。</li><li>外部：通过script标签引入外部js文件。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;my.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></li><li>行内：直接在html标签元素内部写。(常见于vue)</li></ul><h2 id="1-6-注释与结束符"><a href="#1-6-注释与结束符" class="headerlink" title="1.6 注释与结束符"></a>1.6 注释与结束符</h2><p>单行注释：//    (ctrl+/)<br>块注释：/**/    (ctrl+alt+a)<br>浏览器弹窗输出：alert(‘弹窗文本’)<br>js结束符：“;”     不同于CSS，js语句可以不用加分号也能运行。</p><h2 id="1-7-输入输出"><a href="#1-7-输入输出" class="headerlink" title="1.7 输入输出"></a>1.7 输入输出</h2><ol><li>文档输出内容 document.write(‘’)<br>可以直接在页面上输出，且支持输出html标签。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;我是div标签&#x27;)</span><br><span class="line">document.write(&#x27;&lt;h1&gt;我是标题&lt;/h1&gt;&#x27;)</span><br></pre></td></tr></table></figure></li><li>控制台打印输出 console.log(‘’)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#x27;看看对不对&#x27;)</span><br><span class="line">console.log(&#x27;日志&#x27;)</span><br></pre></td></tr></table></figure></li><li>输入弹窗 prompt(‘’)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prompt(&#x27;请输入您的年龄：&#x27;)</span><br></pre></td></tr></table></figure></li><li>输出弹窗 alert(‘’)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;弹窗警告&#x27;)</span><br></pre></td></tr></table></figure></li></ol><h1 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h1><h1 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3. 数据类型"></a>3. 数据类型</h1>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A007(Article007) --><p>本文将主要记录JavaScript的基础部分，当前是ES6(ECMAscript)规范。</p><h1 id="1-JavaScript简介"><a href="#1-JavaScript简介" class="headerlink" title="1. JavaScript简介"></a>1. JavaScript简介</h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h2><p>H5/CSS3是标记语言，而JavaScipt是脚本语言，是一种运行在浏览器的编程语言。</p><h2 id="1-2-作用"><a href="#1-2-作用" class="headerlink" title="1.2 作用"></a>1.2 作用</h2><ul><li>网页特效 (监听用户行为—网页作出反馈)</li><li>表单验证 (表单数据的合法性判断)</li><li>数据交互 (获取后台的数据, 渲染到前端/vue.js)</li><li>服务端编程 (node.js)</li></ul><h2 id="1-3-组成"><a href="#1-3-组成" class="headerlink" title="1.3 组成"></a>1.3 组成</h2><p>JavaScript由EMCAScript和Web APIs组成。<br>其中，EMCAScript是一套规范，规定了js的核心语法。<br>而APIs可以分为DOM(操作页面元素)和BOM(操作浏览器)两部分。</p><h2 id="1-4-权威手册"><a href="#1-4-权威手册" class="headerlink" title="1.4 权威手册"></a>1.4 权威手册</h2><p>MDN(mdn web docs): <a href="https://developer.mozilla.org/zh-CN/">https://developer.mozilla.org/zh-CN/</a></p><h2 id="1-5-js书写位置"><a href="#1-5-js书写位置" class="headerlink" title="1.5 js书写位置"></a>1.5 js书写位置</h2><ul><li>内部：html文件内部，body标签中的script标签内，跟在html元素后面(放在底部)。</li><li>外部：通过script标签引入外部js文件。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;my.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></li><li>行内：直接在html标签元素内部写。(常见于vue)</li></ul><h2 id="1-6-注释与结束符"><a href="#1-6-注释与结束符" class="headerlink" title="1.6 注释与结束符"></a>1.6 注释与结束符</h2><p>单行注释：//    (ctrl+/)<br>块注释：/**/    (ctrl+alt+a)<br>浏览器弹窗输出：alert(‘弹窗文本’)<br>js结束符：“;”     不同于CSS，js语句可以不用加分号也能运行。<br>结束符只要项目中统一使用/不使用即可。最新趋势是不加(如vue)。</p><h2 id="1-7-输入输出"><a href="#1-7-输入输出" class="headerlink" title="1.7 输入输出"></a>1.7 输入输出</h2><ol><li>文档输出内容 document.write(‘’)<br>可以直接在页面上输出，且支持输出html标签。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(&#x27;我是div标签&#x27;)</span><br><span class="line">document.write(&#x27;&lt;h1&gt;我是标题&lt;/h1&gt;&#x27;)</span><br></pre></td></tr></table></figure></li><li>控制台打印输出 console.log(‘’)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#x27;看看对不对&#x27;)</span><br><span class="line">console.log(&#x27;日志&#x27;)</span><br></pre></td></tr></table></figure></li><li>输入弹窗 prompt(‘’)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prompt(&#x27;请输入您的年龄：&#x27;)</span><br></pre></td></tr></table></figure></li><li>输出弹窗 alert(‘’)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;弹窗警告&#x27;)</span><br></pre></td></tr></table></figure></li></ol><h2 id="1-8-字面量-literal"><a href="#1-8-字面量-literal" class="headerlink" title="1.8 字面量(literal)"></a>1.8 字面量(literal)</h2><p>数字字面量：1000<br>字符串字面量：’’<br>数组字面量：[]<br>对象字面量：{}</p><h1 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h1><p>变量，即是容器。<br>声明并赋值，是变量的基本使用方式。</p><h2 id="2-1-变量声明与赋值"><a href="#2-1-变量声明与赋值" class="headerlink" title="2.1 变量声明与赋值"></a>2.1 变量声明与赋值</h2><p>现在js中变量声明使用let，老版本程序中多使用var.<br>例如：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let age = 18</span><br><span class="line">let unname = &#x27;字符串&#x27;</span><br><span class="line">console.log(age, unname)</span><br></pre></td></tr></table></figure><br>又或者输入递给变量：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let unname = prompt(&#x27;请输入姓名&#x27;)</span><br><span class="line">document.write(unname)</span><br></pre></td></tr></table></figure></p><h2 id="2-2-变量命名规则"><a href="#2-2-变量命名规则" class="headerlink" title="2.2 变量命名规则"></a>2.2 变量命名规则</h2><p>js中，变量命名规则如下：</p><ol><li>不能使用关键字 (let,var,if等)</li><li>由下划线字母数字$组成，且不能数字开头</li><li>大小写敏感</li><li>要有含义，且使用驼峰命名法（mingMingFa）</li></ol><h1 id="3-数组"><a href="#3-数组" class="headerlink" title="3. 数组"></a>3. 数组</h1>]]></content>
       
       
       <categories>
@@ -355,10 +355,43 @@
     
     <entry>
       <title></title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。</p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 一图流 *//* 页脚与头图透明 */  #footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }/* 翻页按钮居中 */#pagination {  width: 100%;  margin: auto;}/* 页面样式调节开始 *//* --trans-light：白天模式带透明度的背景色--trans-dark： 夜间模式带透明度的背景色--border-style： 边框样式，1px solid rgb(169, 169, 169)指宽度为1px的灰色实体边框--backdrop-filter: 背景过滤器，如blur(5px) saturate(150%)表示饱和度为150%的、高斯模糊半径为5px的过滤器，这是亚克力效果的一种实现方法; */:root {  --trans-light: rgba(255, 255, 255, 0.88);  --trans-dark: rgba(25, 25, 25, 0.88);  --border-style: 1px solid rgb(169, 169, 169);  --backdrop-filter: blur(5px) saturate(150%);}/* 首页文章卡片 */#recent-posts > .recent-post-item {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 25px;  border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 18px;  border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border: var(--border-style);  border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {  background: rgba(255, 255, 255, 0.75);  backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {  background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts > .recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {  background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {  background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {  background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}[data-theme="dark"] .read-mode div#post {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>网页版小游戏集合</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
       
     </entry>
     
@@ -388,32 +421,10 @@
     
     <entry>
       <title></title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>网页版小游戏集合</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
       
     </entry>
     
@@ -431,42 +442,9 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>友链中心</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐页</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签页</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
@@ -486,11 +464,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
+      <title>标签页</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐页</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -513,6 +502,17 @@
       <url>/js/wowjs/wow_init.js</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
