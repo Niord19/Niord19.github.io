@@ -142,7 +142,7 @@
       <link href="/2022/11/22/osu!%E5%81%9A%E5%9B%BE%E7%AC%94%E8%AE%B0/"/>
       <url>/2022/11/22/osu!%E5%81%9A%E5%9B%BE%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1-使用you-get下载音视频"><a href="#1-使用you-get下载音视频" class="headerlink" title="1. 使用you-get下载音视频"></a>1. 使用you-get下载音视频</h1><p>you-get是一个基于Python3的库，功能类似于“硕鼠”和“IDM”，只要在F12开发者模式下能够找到音视频图片的地址，就都能下载。</p><h2 id="准备步骤："><a href="#准备步骤：" class="headerlink" title="准备步骤："></a>准备步骤：</h2><ol><li>安装python3的环境</li><li>安装pip</li><li>使用pip安装you-get库<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install you-get</span><br></pre></td></tr></table></figure><h2 id="操作步骤："><a href="#操作步骤：" class="headerlink" title="操作步骤："></a>操作步骤：</h2></li><li>查询下载格式<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get -i https://www.??????.com/??????</span><br></pre></td></tr></table></figure></li><li>开始下载<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get --<span class="built_in">format</span>=(清晰度) -o 本地存放路径 -O 文件重命名名称 https://www.??????.com/??????</span><br></pre></td></tr></table></figure></li></ol><ul><li>例子：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get --format=dash-flv480 -o D:\C盘搬家\桌面 -O 22112201 https://www.bilibili.com/video/BV14Y411f73q</span><br></pre></td></tr></table></figure></li></ul><h1 id="2-寻找或制作谱子封面"><a href="#2-寻找或制作谱子封面" class="headerlink" title="2. 寻找或制作谱子封面"></a>2. 寻找或制作谱子封面</h1><h2 id="2-1-寻找封面"><a href="#2-1-寻找封面" class="headerlink" title="2.1 寻找封面"></a>2.1 寻找封面</h2><p>封面可以有以下几种获取方式：</p><ol><li>使用pivix等软件查找理想的图片(注意作者授权)</li><li>使用B站视频封面提取工具(在URL中的bilibili后面加一个q)</li><li>使用you-get下载图片(不常用)</li><li>使用waifu AI 智能生成背景图片(质量存在波动)<br>更多寻找理想的封面的方法有待更新。</li></ol><h2 id="2-2-对封面加作者标题信息"><a href="#2-2-对封面加作者标题信息" class="headerlink" title="2.2 对封面加作者标题信息"></a>2.2 对封面加作者标题信息</h2><p>一般可以直接使用封面，但为了美观与必要，最好注上画师id，歌曲名称，作曲者信息等。<br>推荐使用PS加描边字体，一般考虑以下这几种操作。</p><ul><li>添加文字后，调整字体（考虑曲画风格，选择圆滑、棱角、冷硬、无衬线等字体）</li><li>添加图层样式进行描边（考虑外描边以帮助显眼、外发光以增加凸出感）</li><li>文字位置要考虑到黄金比例与实际游玩时的可见原则</li></ul><h1 id="3-开始确认歌曲timing"><a href="#3-开始确认歌曲timing" class="headerlink" title="3. 开始确认歌曲timing"></a>3. 开始确认歌曲timing</h1><p>由于音游的制谱特殊性，故而BPM稳定，类EDM等风格的歌曲具有稳定的timing，十分方便制谱。<br>但是像变BPM、现场live、人声演唱、摇滚表演等风格的歌曲，就具有复杂的timing，严重一些的可能timing会复杂上百倍甚至上千倍。<br>如果是一开始进行谱面创作，推荐是采用BPM恒定的歌曲进行谱写，最好是打次打次分明的4拍子歌曲。</p><h2 id="3-1-确认变速与否以及BPM"><a href="#3-1-确认变速与否以及BPM" class="headerlink" title="3.1 确认变速与否以及BPM"></a>3.1 确认变速与否以及BPM</h2><ul><li>根据个人习惯找一个敲拍子的软件，osu自带的敲拍在不稳定时会发生回退，故而本人不常用。</li><li>这里使用安卓端的Soundbrenner APP，点击Player菜单，右下角有TAP按钮，一边听目标歌曲一边进行拍子与BPM的确认。</li><li>关注歌曲鼓点，并同时观察显示的BPM有无明显的变化，尤其在段落切换时。</li><li>如果全曲BPM基本恒定，那恭喜；如果BPM确实有明显变化，在估计难度后再考虑要不要进行下一步操作，并记录分段与bpm区段。</li><li>使用PC端MixMeister BPM Analyzer软件进行第二次测试作为参考（FL studio也可以）</li><li>打开osu!editor进行目标歌曲的编辑，在timing中输入BPM数值。</li><li>在输入BPM时，有一点需要注意：输入的BPM数值不宜过高、过低，会对后续写排列造成影响。建议数值范围在150~300之间。如果测出的数值过大、过小，可以考虑对原数值乘上一定倍数（例如：2x,3x,0.5x）</li></ul><h2 id="3-2-找到第一小节的第一拍"><a href="#3-2-找到第一小节的第一拍" class="headerlink" title="3.2 找到第一小节的第一拍"></a>3.2 找到第一小节的第一拍</h2><ul><li>在得知实际BPM并设定后，需要找到歌曲第一小节的第一处鼓点，对上大白线，并种下“红线”</li><li>可以开0.25x对音反复校准，添加第一个小节的note进行测试，对offset进行微调。</li><li>如果第一个小节的鼓点并不明显，可以对偏后一些的小节进行观察，先在后面鼓点明确的小节中种下“红线”。</li></ul><h2 id="3-3-对歌曲进行分段并确认无变速偏移"><a href="#3-3-对歌曲进行分段并确认无变速偏移" class="headerlink" title="3.3 对歌曲进行分段并确认无变速偏移"></a>3.3 对歌曲进行分段并确认无变速偏移</h2><ul><li>利用书签功能将整体音乐划分为若干小块，找到乐器、乐风的变化的白线处，按下Ctrl+B可以打一条蓝线（也可以打绿线）</li><li>按下Ctrl+Shift+B可以取消附近的书签蓝线。</li><li>在确定各个分段时，需要注意各个小节的重音是否对上了白线（BPM是否发生了变化/BPM是否偏快/偏慢）</li><li>就像拿砖头砌墙一样，一段段地去确认（如果BPM发生了明显的变化，可以第一时间敲红线纠正）</li><li>对部分分段（主要是副歌、后半段副歌端、耐力段等）打上kari区域（对绿线设置就可以设置kari的开始与结束）</li></ul><h1 id="4-对音"><a href="#4-对音" class="headerlink" title="4. 对音"></a>4. 对音</h1><p>对歌曲对音是非常重要的一环，这部分需要在精准完成timing的前提下进行操作。<br>部分歌曲可能不同于4拍子，可能是3拍子,会出现4分，6分音混杂的情况。严重一些的地方还有24分与32分音的混杂情况。这部分需要开0.5x,0.25x去仔细数，仔细听，如果实在无法确定，也可以开AU去看火焰图。<br>这一部分的操作比较考验耳朵，一般新人是无法一次性做好的。（就算是老谱师也有翻车的时候）<br>对音是一首谱子的基础，也是最耗费耐心与精力的一块，是一个谱子是否达到及格线的评判标准。<br>对音将会贯穿整首谱子的全程，需要持续注意。</p><h1 id="5-结构化设计"><a href="#5-结构化设计" class="headerlink" title="5. 结构化设计"></a>5. 结构化设计</h1><p>拿到一首歌曲的时候，需要对它的段落进行划分与构思。思考每一部分的最好表达。<br>通常会使用“书签”功能（蓝线Ctrl+B）来进行段落划分。<br>通常可以给一个大概的描述：</p><ul><li>这段intro，可以单点切入</li><li>这段铺垫，可以适当加难度</li><li>这段小提琴、人声、效果音，可以适当加面</li><li>这段有强烈节奏感，可以适当切换</li><li>这段有重复的重音，可以适当叠一下</li><li>这段是副歌，可以复杂一些</li><li>这段是尾杀，<strong><strong><em>*</em></strong></strong></li></ul><h1 id="6-采音"><a href="#6-采音" class="headerlink" title="6. 采音"></a>6. 采音</h1><p>对于部分老谱师来说，采音是很必要的一环。传统的切音音游，都有着按一下响一下的独特模拟演奏的特性。这部分特性同样适用于大多数老传统音游人的胃口。<br>对于一个新谱师而言，采音也是一门必修。需要做到的有：</p><ul><li>忠实于音乐的音，有就是有，没有就是没有（这里先不考虑dump与部分练习谱）</li><li>分清同时出现了哪些音，并做出采音数量的决定，以及采音的取舍。</li><li>对同样音乐部分的采音最好要统一，才能更好的还原模拟演奏与call back的感觉（被老谱师称为“一致性原则”）<br>比如说：<br>A. 我把大部分鼓音(Drum)全抓在1轨（BMS风格）<br>B. 重音拍始终比弱拍多1-2押(比如：重2弱1，重3弱2，…)但一般的弱拍不会超过3押。<br>C. 同样的音高，采同样的轨道。(且在低密度时遵循“左低右高”的钢琴模拟原则)<br>D. 独特的音色，可以对应独特的键押。(比如: 我会把重钝鼓采3合押，钝鼓采2合押，脆和音采2押(隔1)，钝和音采2押(隔2)，单音单押)但每个谱师都有自己独特的一套设计逻辑，需要自行探索，才能写出个人风格强烈的谱子。<br>E. 同一时间段乐器混杂时，只采其中一个音轨的音。(比如：人声和钢琴和鼓混合，根据前后段的继承性，适当选择是全抓乐器，全抓人声，还是抓钢琴，抓鼓，还是抓乐器并适当抓人声面)<br>当然部分采音规则在面对手感和排列的需求时，是可以做出一定的让步的。(比如：镜像音高，适当加减押)<br>可以先来一首midi转谱体验一下，也许能有不同的视角去理解。<br>如果采音做好了，那么既然这个谱子的手感稀烂，但是模拟演奏感还是一流的，即基本满足游玩条件。</li></ul><h1 id="7-排列"><a href="#7-排列" class="headerlink" title="7. 排列"></a>7. 排列</h1><p>排列是指一段时间内，全轨道范围内的按键组合。<br>通常认为：按键的组合达到一定规模，就会形成排列；而根据各种排列的不同特性，会被分为不同的键型。<br>相关术语有“排列走向”、“排列手感”、“排列密度”等。</p><p>最小的排列可以从“切”和“叠”开始说起。<br>“切”，全称“切换”，在大多数情形下，通常指单手侧控制下，不同轨道间的按键交替(不同时间点下的按键)—切换。<br>如果是在不同手的控制下，出现的按键交替，通常会被称为“散点”/“交互”/“跑键”等。<br>“叠”，在大多数情形下，会指相同轨道中，不同时间点下的按键层叠—叠键。<br>根据押数大小的区别，叠通常会被分为“大叠”、“中叠”、“小叠”、“纵叠”等。</p><p>随着轨道数量的上升，“切”会有一定的延展，出现“胶囊”，“裤衩”这种通常需要3行以上才能认定的键型。<br>这类键型用文字会比较难以描述，在这里先做一些抽象的介绍。<br>“胶囊”: 本质是一种拍切，拍的很大的切，且通常会形成闭合。<br>“裤衩”：本质是一种吃协调的速切，排的很满的双向切。通常一个“衩”的范围是3X3</p><p>但排列不仅仅受限于键型。键型是前人谱师的一些优秀的排列成果，也有众多排列并没有被赋予键型的名号。(那些大多数的手感可能都不是很好(划掉))<br>如果一位谱师的排列功底过硬，那么最直观的呈现就是这个谱师的谱子的手感会很棒(๑•̀ㅂ•́)و✧<br>但如果单方面过于注重排列，就可能缺失掉一些谱面的音乐表达力，逐渐失去谱子的音乐灵魂。<br>如果是优秀的排列，不但手感会很好，而且也会有很棒的音乐表现力，让人拍案叫绝，直呼十分有趣。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1-使用you-get下载音视频"><a href="#1-使用you-get下载音视频" class="headerlink" title="1. 使用you-get下载音视频"></a>1. 使用you-get下载音视频</h1><p>you-get是一个基于Python3的库，功能类似于“硕鼠”和“IDM”，只要在F12开发者模式下能够找到音视频图片的地址，就都能下载。</p><h2 id="准备步骤："><a href="#准备步骤：" class="headerlink" title="准备步骤："></a>准备步骤：</h2><ol><li>安装python3的环境</li><li>安装pip</li><li>使用pip安装you-get库<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install you-get</span><br></pre></td></tr></table></figure><h2 id="操作步骤："><a href="#操作步骤：" class="headerlink" title="操作步骤："></a>操作步骤：</h2></li><li>查询下载格式<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get -i https://www.??????.com/??????</span><br></pre></td></tr></table></figure></li><li>开始下载<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get --<span class="built_in">format</span>=(清晰度) -o 本地存放路径 -O 文件重命名名称 https://www.??????.com/??????</span><br></pre></td></tr></table></figure></li></ol><ul><li>例子：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get --format=dash-flv480 -o D:\C盘搬家\桌面 -O 22112201 https://www.bilibili.com/video/BV14Y411f73q</span><br></pre></td></tr></table></figure></li></ul><h1 id="2-寻找或制作谱子封面"><a href="#2-寻找或制作谱子封面" class="headerlink" title="2. 寻找或制作谱子封面"></a>2. 寻找或制作谱子封面</h1><h2 id="2-1-寻找封面"><a href="#2-1-寻找封面" class="headerlink" title="2.1 寻找封面"></a>2.1 寻找封面</h2><p>封面可以有以下几种获取方式：</p><ol><li>使用pivix等软件查找理想的图片(注意作者授权)</li><li>使用B站视频封面提取工具(在URL中的bilibili后面加一个q)</li><li>使用you-get下载图片(不常用)</li><li>使用waifu AI 智能生成背景图片(质量存在波动)<br>更多寻找理想的封面的方法有待更新。</li></ol><h2 id="2-2-对封面加作者标题信息"><a href="#2-2-对封面加作者标题信息" class="headerlink" title="2.2 对封面加作者标题信息"></a>2.2 对封面加作者标题信息</h2><p>一般可以直接使用封面，但为了美观与必要，最好注上画师id，歌曲名称，作曲者信息等。<br>推荐使用PS加描边字体，一般考虑以下这几种操作。</p><ul><li>添加文字后，调整字体（考虑曲画风格，选择圆滑、棱角、冷硬、无衬线等字体）</li><li>添加图层样式进行描边（考虑外描边以帮助显眼、外发光以增加凸出感）</li><li>文字位置要考虑到黄金比例与实际游玩时的可见原则</li></ul><h1 id="3-开始确认歌曲timing"><a href="#3-开始确认歌曲timing" class="headerlink" title="3. 开始确认歌曲timing"></a>3. 开始确认歌曲timing</h1><p>由于音游的制谱特殊性，故而BPM稳定，类EDM等风格的歌曲具有稳定的timing，十分方便制谱。<br>但是像变BPM、现场live、人声演唱、摇滚表演等风格的歌曲，就具有复杂的timing，严重一些的可能timing会复杂上百倍甚至上千倍。<br>如果是一开始进行谱面创作，推荐是采用BPM恒定的歌曲进行谱写，最好是打次打次分明的4拍子歌曲。</p><h2 id="3-1-确认变速与否以及BPM"><a href="#3-1-确认变速与否以及BPM" class="headerlink" title="3.1 确认变速与否以及BPM"></a>3.1 确认变速与否以及BPM</h2><ul><li>根据个人习惯找一个敲拍子的软件，osu自带的敲拍在不稳定时会发生回退，故而本人不常用。</li><li>这里使用安卓端的Soundbrenner APP，点击Player菜单，右下角有TAP按钮，一边听目标歌曲一边进行拍子与BPM的确认。</li><li>关注歌曲鼓点，并同时观察显示的BPM有无明显的变化，尤其在段落切换时。</li><li>如果全曲BPM基本恒定，那恭喜；如果BPM确实有明显变化，在估计难度后再考虑要不要进行下一步操作，并记录分段与bpm区段。</li><li>使用PC端MixMeister BPM Analyzer软件进行第二次测试作为参考（FL studio也可以）</li><li>打开osu!editor进行目标歌曲的编辑，在timing中输入BPM数值。</li><li>在输入BPM时，有一点需要注意：输入的BPM数值不宜过高、过低，会对后续写排列造成影响。建议数值范围在150~300之间。如果测出的数值过大、过小，可以考虑对原数值乘上一定倍数（例如：2x,3x,0.5x）</li></ul><h2 id="3-2-找到第一小节的第一拍"><a href="#3-2-找到第一小节的第一拍" class="headerlink" title="3.2 找到第一小节的第一拍"></a>3.2 找到第一小节的第一拍</h2><ul><li>在得知实际BPM并设定后，需要找到歌曲第一小节的第一处鼓点，对上大白线，并种下“红线”</li><li>可以开0.25x对音反复校准，添加第一个小节的note进行测试，对offset进行微调。</li><li>如果第一个小节的鼓点并不明显，可以对偏后一些的小节进行观察，先在后面鼓点明确的小节中种下“红线”。</li></ul><h2 id="3-3-对歌曲进行分段并确认无变速偏移"><a href="#3-3-对歌曲进行分段并确认无变速偏移" class="headerlink" title="3.3 对歌曲进行分段并确认无变速偏移"></a>3.3 对歌曲进行分段并确认无变速偏移</h2><ul><li>利用书签功能将整体音乐划分为若干小块，找到乐器、乐风的变化的白线处，按下Ctrl+B可以打一条蓝线（也可以打绿线）</li><li>按下Ctrl+Shift+B可以取消附近的书签蓝线。</li><li>在确定各个分段时，需要注意各个小节的重音是否对上了白线（BPM是否发生了变化/BPM是否偏快/偏慢）</li><li>就像拿砖头砌墙一样，一段段地去确认（如果BPM发生了明显的变化，可以第一时间敲红线纠正）</li><li>对部分分段（主要是副歌、后半段副歌端、耐力段等）打上kari区域（对绿线设置就可以设置kari的开始与结束）</li></ul><h1 id="4-对音"><a href="#4-对音" class="headerlink" title="4. 对音"></a>4. 对音</h1><p>对歌曲对音是非常重要的一环，这部分需要在精准完成timing的前提下进行操作。<br>部分歌曲可能不同于4拍子，可能是3拍子,会出现4分，6分音混杂的情况。严重一些的地方还有24分与32分音的混杂情况。这部分需要开0.5x,0.25x去仔细数，仔细听，如果实在无法确定，也可以开AU去看火焰图。<br>这一部分的操作比较考验耳朵，一般新人是无法一次性做好的。（就算是老谱师也有翻车的时候）<br>对音是一首谱子的基础，也是最耗费耐心与精力的一块，是一个谱子是否达到及格线的评判标准。<br>对音将会贯穿整首谱子的全程，需要持续注意。</p><h1 id="5-结构化设计"><a href="#5-结构化设计" class="headerlink" title="5. 结构化设计"></a>5. 结构化设计</h1><p>拿到一首歌曲的时候，需要对它的段落进行划分与构思。思考每一部分的最好表达。<br>通常会使用“书签”功能（蓝线Ctrl+B）来进行段落划分。<br>通常可以给一个大概的描述：</p><ul><li>这段intro，可以单点切入</li><li>这段铺垫，可以适当加难度</li><li>这段小提琴、人声、效果音，可以适当加面</li><li>这段有强烈节奏感，可以适当切换</li><li>这段有重复的重音，可以适当叠一下</li><li>这段是副歌，可以复杂一些</li><li>这段是尾杀，<strong><strong><em>*</em></strong></strong></li></ul><h1 id="6-采音"><a href="#6-采音" class="headerlink" title="6. 采音"></a>6. 采音</h1><p>对于部分老谱师来说，采音是很必要的一环。传统的切音音游，都有着按一下响一下的独特模拟演奏的特性。这部分特性同样适用于大多数老传统音游人的胃口。<br>对于一个新谱师而言，采音也是一门必修。需要做到的有：</p><ul><li>忠实于音乐的音，有就是有，没有就是没有（这里先不考虑dump与部分练习谱）</li><li>分清同时出现了哪些音，并做出采音数量的决定，以及采音的取舍。</li><li>对同样音乐部分的采音最好要统一，才能更好的还原模拟演奏与call back的感觉（被老谱师称为“一致性原则”）</li></ul><p>比如说：</p><ol><li>我把大部分鼓音(Drum)全抓在1轨（BMS风格）</li><li>重音拍始终比弱拍多1-2押(比如：重2弱1，重3弱2，…)但一般的弱拍不会超过3押。</li><li>同样的音高，采同样的轨道。(且在低密度时遵循“左低右高”的钢琴模拟原则)</li><li>独特的音色，可以对应独特的键押。(比如: 我会把重钝鼓采3合押，钝鼓采2合押，脆和音采2押(隔1)，钝和音采2押(隔2)，单音单押)但每个谱师都有自己独特的一套设计逻辑，需要自行探索，才能写出个人风格强烈的谱子。</li><li>同一时间段乐器混杂时，只采其中一个音轨的音。(比如：人声和钢琴和鼓混合，根据前后段的继承性，适当选择是全抓乐器，全抓人声，还是抓钢琴，抓鼓，还是抓乐器并适当抓人声面)<br>当然部分采音规则在面对手感和排列的需求时，是可以做出一定的让步的。(比如：镜像音高，适当加减押)<br>可以先来一首midi转谱体验一下，也许能有不同的视角去理解。<br>如果采音做好了，那么既然这个谱子的手感稀烂，但是模拟演奏感还是一流的，即基本满足游玩条件。</li></ol><h1 id="7-排列"><a href="#7-排列" class="headerlink" title="7. 排列"></a>7. 排列</h1><p>排列是指一段时间内，全轨道范围内的按键组合。<br>通常认为：按键的组合达到一定规模，就会形成排列；而根据各种排列的不同特性，会被分为不同的键型。<br>相关术语有“排列走向”、“排列手感”、“排列密度”等。</p><ol><li><p>最小的排列可以从“切”和“叠”开始说起。<br>“切”，全称“切换”，在大多数情形下，通常指单手侧控制下，不同轨道间的按键交替(不同时间点下的按键)—切换。<br>如果是在不同手的控制下，出现的按键交替，通常会被称为“散点”/“交互”/“跑键”等。<br>“叠”，在大多数情形下，会指相同轨道中，不同时间点下的按键层叠—叠键。<br>根据押数大小的区别，叠通常会被分为“大叠”、“中叠”、“小叠”、“纵叠”等。</p></li><li><p>随着轨道数量的上升，“切”会有一定的延展，出现“胶囊”，“裤衩”这种通常需要3行以上才能认定的键型。<br>这类键型用文字会比较难以描述，在这里先做一些抽象的介绍。<br>“胶囊”: 本质是一种拍切，拍的很大的切，且通常会形成闭合。<br>“裤衩”：本质是一种吃协调的速切，排的很满的双向切。通常一个“衩”的范围是3X3</p></li></ol><p>但排列不仅仅受限于键型。键型是前人谱师的一些优秀的排列成果，也有众多排列并没有被赋予键型的名号。(那些大多数的手感可能都不是很好(划掉))<br>如果一位谱师的排列功底过硬，那么最直观的呈现就是这个谱师的谱子的手感会很棒(๑•̀ㅂ•́)و✧<br>但如果单方面过于注重排列，就可能缺失掉一些谱面的音乐表达力，逐渐失去谱子的音乐灵魂。<br>如果是优秀的排列，不但手感会很好，而且也会有很棒的音乐表现力，让人拍案叫绝，直呼十分有趣。</p>]]></content>
       
       
       <categories>
@@ -354,22 +354,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title></title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。</p>]]></content>
       
     </entry>
     
@@ -442,17 +442,6 @@
     
     
     <entry>
-      <title>动漫页</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>友链中心</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
@@ -467,6 +456,17 @@
       <title>音乐页</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>动漫页</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
@@ -498,10 +498,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/wowjs/wow_init.js"/>
-      <url>/js/wowjs/wow_init.js</url>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
@@ -509,10 +509,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
+      <link href="/js/wowjs/wow_init.js"/>
+      <url>/js/wowjs/wow_init.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
       
     </entry>
     
