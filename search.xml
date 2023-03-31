@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>UVR使用笔记</title>
+      <link href="/2023/03/31/UVR%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/03/31/UVR%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A011(Article011) --><h1 id="1-UVR项目介绍"><a href="#1-UVR项目介绍" class="headerlink" title="1. UVR项目介绍"></a>1. UVR项目介绍</h1><p>UVR (Ultimate Vocal Remover) 是一款基于AI技术的音轨分离开源音频处理软件。目前已经更新到UVR 5.5版本，其中的模型支持做到多音轨分离，提取人声、提取伴奏、单独提取乐器（比如Bass,piano等等），其优点是占地很小，下载即用，开源免费，功能十分牛逼。</p><p>GUI项目地址：<a href="https://github.com/Anjok07/ultimatevocalremovergui/">https://github.com/Anjok07/ultimatevocalremovergui/</a><br>相关模型资源包：<a href="https://pan.baidu.com/s/14iK32JKIPvjmf1Kfq21mzg?pwd=hjhj">https://pan.baidu.com/s/14iK32JKIPvjmf1Kfq21mzg?pwd=hjhj</a> 提取码: hjhj</p><h1 id="2-界面介绍"><a href="#2-界面介绍" class="headerlink" title="2. 界面介绍"></a>2. 界面介绍</h1><p>这里的中文帮助翻译由up主 @痕继痕迹 提供。</p><h2 id="2-1-基础界面介绍："><a href="#2-1-基础界面介绍：" class="headerlink" title="2.1 基础界面介绍："></a>2.1 基础界面介绍：</h2><p><img src="https://s2.loli.net/2023/03/31/8DzbGPFsMVpUcOl.jpg" alt="A011-01.jpg"><br>其中需要说的是，基础界面会根据你选择的AI算法模型不同而呈现不同的界面选项。如图中介绍的一样，我们在设定了输入音频(input)和输出路径(output)后，需要设定选择的AI算法(Process Method)以及对应的模型(Model)，部分模型/算法需要用到“小扳手”中的高级设置内容。最后记得使用GPU加速。<br>目前v5.5中，Method的选择有：</p><ol><li>VR Architecture</li><li>MDX-Net</li><li>Demucs v3</li><li>Ensemble Mode (合奏模式)</li><li>Audio Tools (比较高级复杂)<br>一般情况下，我们使用前三种Method已经足够应对大多数规模的需求。接下来分别介绍选中VR Architecture、MDX-Net、Demucs、Ensemble Mode几种Method后，界面的变化以及配置说明。</li></ol><h2 id="2-2-VR-Architecture-选项介绍"><a href="#2-2-VR-Architecture-选项介绍" class="headerlink" title="2.2 VR Architecture 选项介绍"></a>2.2 VR Architecture 选项介绍</h2><p><img src="https://s2.loli.net/2023/03/31/MpSLYBIb1J9PfdK.jpg" alt="A011-02.jpg"><br>在so-vits-svc项目中，我们曾经用过这种Method进行对和声、底噪的去除。<br>在选中VR Architecture method后，一些主要模型和配置参数如图所示。<br>建议是根据说明多多尝试比较。</p><h2 id="2-3-MDX-Net-选项介绍"><a href="#2-3-MDX-Net-选项介绍" class="headerlink" title="2.3 MDX-Net 选项介绍"></a>2.3 MDX-Net 选项介绍</h2><p><img src="https://s2.loli.net/2023/03/31/97vaeRx8LCsWf4H.jpg" alt="A011-03.jpg"><br>这个Method我还没有用过，后续看缘分再说吧。</p><h2 id="2-4-Demucs-v3-选项介绍"><a href="#2-4-Demucs-v3-选项介绍" class="headerlink" title="2.4 Demucs v3 选项介绍"></a>2.4 Demucs v3 选项介绍</h2><p><img src="https://s2.loli.net/2023/03/31/Fd6zeQX1yfBM7kI.jpg" alt="A011-04.jpg"><br>在so-vits-svc项目中，我们曾经用过这种Method进行对音轨的分离。<br>在使用mdx_extra/mdx_extra_q这两个模型时，可以在Choose Stem(s)中选择特定的音轨，默认是可以提取四种音轨的。<br>在勾选项中，可以勾中“stem only”只导出我们设置的音轨。也可以勾中“Mix without stem only”来去除我们设置的音轨。（很牛）</p><h2 id="2-5-Ensemble-Mode-合奏选项介绍"><a href="#2-5-Ensemble-Mode-合奏选项介绍" class="headerlink" title="2.5 Ensemble Mode 合奏选项介绍"></a>2.5 Ensemble Mode 合奏选项介绍</h2><p><img src="https://s2.loli.net/2023/03/31/DpFE1h8NAMuyb7Z.jpg" alt="A011-05.jpg"></p><h2 id="2-6-Manual-Ensemble-手动合奏介绍"><a href="#2-6-Manual-Ensemble-手动合奏介绍" class="headerlink" title="2.6 Manual Ensemble 手动合奏介绍"></a>2.6 Manual Ensemble 手动合奏介绍</h2><p><img src="https://s2.loli.net/2023/03/31/LXnv2H4kQNe1AKY.jpg" alt="A011-06.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 音频处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UVR </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> 分离音轨 </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> 人声提取 </tag>
+            
+            <tag> 伴奏提取 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>so-vits-svc4.0项目配置笔记</title>
       <link href="/2023/03/31/so-vits-svc4.0%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/03/31/so-vits-svc4.0%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/</url>
@@ -469,6 +504,39 @@
     
     
     <entry>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 一图流 *//* 页脚与头图透明 */  #footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }/* 翻页按钮居中 */#pagination {  width: 100%;  margin: auto;}/* 页面样式调节开始 *//* --trans-light：白天模式带透明度的背景色--trans-dark： 夜间模式带透明度的背景色--border-style： 边框样式，1px solid rgb(169, 169, 169)指宽度为1px的灰色实体边框--backdrop-filter: 背景过滤器，如blur(5px) saturate(150%)表示饱和度为150%的、高斯模糊半径为5px的过滤器，这是亚克力效果的一种实现方法; */:root {  --trans-light: rgba(255, 255, 255, 0.88);  --trans-dark: rgba(25, 25, 25, 0.88);  --border-style: 1px solid rgb(169, 169, 169);  --backdrop-filter: blur(5px) saturate(150%);}/* 首页文章卡片 */#recent-posts > .recent-post-item {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 25px;  border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 18px;  border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border: var(--border-style);  border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {  background: rgba(255, 255, 255, 0.75);  backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {  background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts > .recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {  background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {  background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {  background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}[data-theme="dark"] .read-mode div#post {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网页版小游戏集合</title>
       <link href="/game/index.html"/>
       <url>/game/index.html</url>
@@ -481,10 +549,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
       
     </entry>
     
@@ -494,28 +562,6 @@
       <title>动漫页</title>
       <link href="/movies/index.html"/>
       <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友链中心</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐页</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
@@ -535,11 +581,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/wowjs/wow.min.js"/>
-      <url>/js/wowjs/wow.min.js</url>
+      <title>音乐页</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/*! WOW wow.js - v1.3.0 - 2016-10-04* https://wowjs.uk* Copyright (c) 2016 Thomas Grainger; Licensed MIT */!function(a,b){if("function"==typeof define&&define.amd)define(["module","exports"],b);else if("undefined"!=typeof exports)b(module,exports);else{var c={exports:{}};b(c,c.exports),a.WOW=c.exports}}(this,function(a,b){"use strict";function c(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function d(a,b){return b.indexOf(a)>=0}function e(a,b){for(var c in b)if(null==a[c]){var d=b[c];a[c]=d}return a}function f(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)}function g(a){var b=arguments.length<=1||void 0===arguments[1]?!1:arguments[1],c=arguments.length<=2||void 0===arguments[2]?!1:arguments[2],d=arguments.length<=3||void 0===arguments[3]?null:arguments[3],e=void 0;return null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e}function h(a,b){null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)&&a["on"+b]()}function i(a,b,c){null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c}function j(a,b,c){null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]}function k(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight}Object.defineProperty(b,"__esModule",{value:!0});var l,m,n=function(){function a(a,b){for(var c=0;c<b.length;c++){var d=b[c];d.enumerable=d.enumerable||!1,d.configurable=!0,"value"in d&&(d.writable=!0),Object.defineProperty(a,d.key,d)}}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}(),o=window.WeakMap||window.MozWeakMap||function(){function a(){c(this,a),this.keys=[],this.values=[]}return n(a,[{key:"get",value:function(a){for(var b=0;b<this.keys.length;b++){var c=this.keys[b];if(c===a)return this.values[b]}}},{key:"set",value:function(a,b){for(var c=0;c<this.keys.length;c++){var d=this.keys[c];if(d===a)return this.values[c]=b,this}return this.keys.push(a),this.values.push(b),this}}]),a}(),p=window.MutationObserver||window.WebkitMutationObserver||window.MozMutationObserver||(m=l=function(){function a(){c(this,a),"undefined"!=typeof console&&null!==console&&(console.warn("MutationObserver is not supported by your browser."),console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content."))}return n(a,[{key:"observe",value:function(){}}]),a}(),l.notSupported=!0,m),q=window.getComputedStyle||function(a){var b=/(\-([a-z]){1})/g;return{getPropertyValue:function(c){"float"===c&&(c="styleFloat"),b.test(c)&&c.replace(b,function(a,b){return b.toUpperCase()});var d=a.currentStyle;return(null!=d?d[c]:void 0)||null}}},r=function(){function a(){var b=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];c(this,a),this.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null,resetAnimation:!0},this.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),this.vendors=["moz","webkit"],this.start=this.start.bind(this),this.resetAnimation=this.resetAnimation.bind(this),this.scrollHandler=this.scrollHandler.bind(this),this.scrollCallback=this.scrollCallback.bind(this),this.scrolled=!0,this.config=e(b,this.defaults),null!=b.scrollContainer&&(this.config.scrollContainer=document.querySelector(b.scrollContainer)),this.animationNameCache=new o,this.wowEvent=g(this.config.boxClass)}return n(a,[{key:"init",value:function(){this.element=window.document.documentElement,d(document.readyState,["interactive","complete"])?this.start():i(document,"DOMContentLoaded",this.start),this.finished=[]}},{key:"start",value:function(){var a=this;if(this.stopped=!1,this.boxes=[].slice.call(this.element.querySelectorAll("."+this.config.boxClass)),this.all=this.boxes.slice(0),this.boxes.length)if(this.disabled())this.resetStyle();else for(var b=0;b<this.boxes.length;b++){var c=this.boxes[b];this.applyStyle(c,!0)}if(this.disabled()||(i(this.config.scrollContainer||window,"scroll",this.scrollHandler),i(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live){var d=new p(function(b){for(var c=0;c<b.length;c++)for(var d=b[c],e=0;e<d.addedNodes.length;e++){var f=d.addedNodes[e];a.doSync(f)}});d.observe(document.body,{childList:!0,subtree:!0})}}},{key:"stop",value:function(){this.stopped=!0,j(this.config.scrollContainer||window,"scroll",this.scrollHandler),j(window,"resize",this.scrollHandler),null!=this.interval&&clearInterval(this.interval)}},{key:"sync",value:function(){p.notSupported&&this.doSync(this.element)}},{key:"doSync",value:function(a){if("undefined"!=typeof a&&null!==a||(a=this.element),1===a.nodeType){a=a.parentNode||a;for(var b=a.querySelectorAll("."+this.config.boxClass),c=0;c<b.length;c++){var e=b[c];d(e,this.all)||(this.boxes.push(e),this.all.push(e),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(e,!0),this.scrolled=!0)}}}},{key:"show",value:function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),h(a,this.wowEvent),this.config.resetAnimation&&(i(a,"animationend",this.resetAnimation),i(a,"oanimationend",this.resetAnimation),i(a,"webkitAnimationEnd",this.resetAnimation),i(a,"MSAnimationEnd",this.resetAnimation)),a}},{key:"applyStyle",value:function(a,b){var c=this,d=a.getAttribute("data-wow-duration"),e=a.getAttribute("data-wow-delay"),f=a.getAttribute("data-wow-iteration");return this.animate(function(){return c.customStyle(a,b,d,e,f)})}},{key:"resetStyle",value:function(){for(var a=0;a<this.boxes.length;a++){var b=this.boxes[a];b.style.visibility="visible"}}},{key:"resetAnimation",value:function(a){if(a.type.toLowerCase().indexOf("animationend")>=0){var b=a.target||a.srcElement;b.className=b.className.replace(this.config.animateClass,"").trim()}}},{key:"customStyle",value:function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a}},{key:"vendorSet",value:function(a,b){for(var c in b)if(b.hasOwnProperty(c)){var d=b[c];a[""+c]=d;for(var e=0;e<this.vendors.length;e++){var f=this.vendors[e];a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=d}}}},{key:"vendorCSS",value:function(a,b){for(var c=q(a),d=c.getPropertyCSSValue(b),e=0;e<this.vendors.length;e++){var f=this.vendors[e];d=d||c.getPropertyCSSValue("-"+f+"-"+b)}return d}},{key:"animationName",value:function(a){var b=void 0;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=q(a).getPropertyValue("animation-name")}return"none"===b?"":b}},{key:"cacheAnimationName",value:function(a){return this.animationNameCache.set(a,this.animationName(a))}},{key:"cachedAnimationName",value:function(a){return this.animationNameCache.get(a)}},{key:"scrollHandler",value:function(){this.scrolled=!0}},{key:"scrollCallback",value:function(){if(this.scrolled){this.scrolled=!1;for(var a=[],b=0;b<this.boxes.length;b++){var c=this.boxes[b];if(c){if(this.isVisible(c)){this.show(c);continue}a.push(c)}}this.boxes=a,this.boxes.length||this.config.live||this.stop()}}},{key:"offsetTop",value:function(a){for(;void 0===a.offsetTop;)a=a.parentNode;for(var b=a.offsetTop;a.offsetParent;)a=a.offsetParent,b+=a.offsetTop;return b}},{key:"isVisible",value:function(a){var b=a.getAttribute("data-wow-offset")||this.config.offset,c=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,d=c+Math.min(this.element.clientHeight,k())-b,e=this.offsetTop(a),f=e+a.clientHeight;return d>=e&&f>=c}},{key:"disabled",value:function(){return!this.config.mobile&&f(navigator.userAgent)}}]),a}();b["default"]=r,a.exports=b["default"]});]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链中心</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -547,43 +604,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/wowjs/wow_init.js"/>
-      <url>/js/wowjs/wow_init.js</url>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 一图流 *//* 页脚与头图透明 */  #footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }/* 翻页按钮居中 */#pagination {  width: 100%;  margin: auto;}/* 页面样式调节开始 *//* --trans-light：白天模式带透明度的背景色--trans-dark： 夜间模式带透明度的背景色--border-style： 边框样式，1px solid rgb(169, 169, 169)指宽度为1px的灰色实体边框--backdrop-filter: 背景过滤器，如blur(5px) saturate(150%)表示饱和度为150%的、高斯模糊半径为5px的过滤器，这是亚克力效果的一种实现方法; */:root {  --trans-light: rgba(255, 255, 255, 0.88);  --trans-dark: rgba(25, 25, 25, 0.88);  --border-style: 1px solid rgb(169, 169, 169);  --backdrop-filter: blur(5px) saturate(150%);}/* 首页文章卡片 */#recent-posts > .recent-post-item {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 25px;  border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 18px;  border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border: var(--border-style);  border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {  background: rgba(255, 255, 255, 0.75);  backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {  background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts > .recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {  background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {  background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {  background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}[data-theme="dark"] .read-mode div#post {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
       
     </entry>
     
@@ -602,10 +626,21 @@
     
     <entry>
       <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
+      <link href="/js/wowjs/wow_init.js"/>
+      <url>/js/wowjs/wow_init.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/wowjs/wow.min.js"/>
+      <url>/js/wowjs/wow.min.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/*! WOW wow.js - v1.3.0 - 2016-10-04* https://wowjs.uk* Copyright (c) 2016 Thomas Grainger; Licensed MIT */!function(a,b){if("function"==typeof define&&define.amd)define(["module","exports"],b);else if("undefined"!=typeof exports)b(module,exports);else{var c={exports:{}};b(c,c.exports),a.WOW=c.exports}}(this,function(a,b){"use strict";function c(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function d(a,b){return b.indexOf(a)>=0}function e(a,b){for(var c in b)if(null==a[c]){var d=b[c];a[c]=d}return a}function f(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)}function g(a){var b=arguments.length<=1||void 0===arguments[1]?!1:arguments[1],c=arguments.length<=2||void 0===arguments[2]?!1:arguments[2],d=arguments.length<=3||void 0===arguments[3]?null:arguments[3],e=void 0;return null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e}function h(a,b){null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)&&a["on"+b]()}function i(a,b,c){null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c}function j(a,b,c){null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]}function k(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight}Object.defineProperty(b,"__esModule",{value:!0});var l,m,n=function(){function a(a,b){for(var c=0;c<b.length;c++){var d=b[c];d.enumerable=d.enumerable||!1,d.configurable=!0,"value"in d&&(d.writable=!0),Object.defineProperty(a,d.key,d)}}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}(),o=window.WeakMap||window.MozWeakMap||function(){function a(){c(this,a),this.keys=[],this.values=[]}return n(a,[{key:"get",value:function(a){for(var b=0;b<this.keys.length;b++){var c=this.keys[b];if(c===a)return this.values[b]}}},{key:"set",value:function(a,b){for(var c=0;c<this.keys.length;c++){var d=this.keys[c];if(d===a)return this.values[c]=b,this}return this.keys.push(a),this.values.push(b),this}}]),a}(),p=window.MutationObserver||window.WebkitMutationObserver||window.MozMutationObserver||(m=l=function(){function a(){c(this,a),"undefined"!=typeof console&&null!==console&&(console.warn("MutationObserver is not supported by your browser."),console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content."))}return n(a,[{key:"observe",value:function(){}}]),a}(),l.notSupported=!0,m),q=window.getComputedStyle||function(a){var b=/(\-([a-z]){1})/g;return{getPropertyValue:function(c){"float"===c&&(c="styleFloat"),b.test(c)&&c.replace(b,function(a,b){return b.toUpperCase()});var d=a.currentStyle;return(null!=d?d[c]:void 0)||null}}},r=function(){function a(){var b=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];c(this,a),this.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null,resetAnimation:!0},this.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),this.vendors=["moz","webkit"],this.start=this.start.bind(this),this.resetAnimation=this.resetAnimation.bind(this),this.scrollHandler=this.scrollHandler.bind(this),this.scrollCallback=this.scrollCallback.bind(this),this.scrolled=!0,this.config=e(b,this.defaults),null!=b.scrollContainer&&(this.config.scrollContainer=document.querySelector(b.scrollContainer)),this.animationNameCache=new o,this.wowEvent=g(this.config.boxClass)}return n(a,[{key:"init",value:function(){this.element=window.document.documentElement,d(document.readyState,["interactive","complete"])?this.start():i(document,"DOMContentLoaded",this.start),this.finished=[]}},{key:"start",value:function(){var a=this;if(this.stopped=!1,this.boxes=[].slice.call(this.element.querySelectorAll("."+this.config.boxClass)),this.all=this.boxes.slice(0),this.boxes.length)if(this.disabled())this.resetStyle();else for(var b=0;b<this.boxes.length;b++){var c=this.boxes[b];this.applyStyle(c,!0)}if(this.disabled()||(i(this.config.scrollContainer||window,"scroll",this.scrollHandler),i(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live){var d=new p(function(b){for(var c=0;c<b.length;c++)for(var d=b[c],e=0;e<d.addedNodes.length;e++){var f=d.addedNodes[e];a.doSync(f)}});d.observe(document.body,{childList:!0,subtree:!0})}}},{key:"stop",value:function(){this.stopped=!0,j(this.config.scrollContainer||window,"scroll",this.scrollHandler),j(window,"resize",this.scrollHandler),null!=this.interval&&clearInterval(this.interval)}},{key:"sync",value:function(){p.notSupported&&this.doSync(this.element)}},{key:"doSync",value:function(a){if("undefined"!=typeof a&&null!==a||(a=this.element),1===a.nodeType){a=a.parentNode||a;for(var b=a.querySelectorAll("."+this.config.boxClass),c=0;c<b.length;c++){var e=b[c];d(e,this.all)||(this.boxes.push(e),this.all.push(e),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(e,!0),this.scrolled=!0)}}}},{key:"show",value:function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),h(a,this.wowEvent),this.config.resetAnimation&&(i(a,"animationend",this.resetAnimation),i(a,"oanimationend",this.resetAnimation),i(a,"webkitAnimationEnd",this.resetAnimation),i(a,"MSAnimationEnd",this.resetAnimation)),a}},{key:"applyStyle",value:function(a,b){var c=this,d=a.getAttribute("data-wow-duration"),e=a.getAttribute("data-wow-delay"),f=a.getAttribute("data-wow-iteration");return this.animate(function(){return c.customStyle(a,b,d,e,f)})}},{key:"resetStyle",value:function(){for(var a=0;a<this.boxes.length;a++){var b=this.boxes[a];b.style.visibility="visible"}}},{key:"resetAnimation",value:function(a){if(a.type.toLowerCase().indexOf("animationend")>=0){var b=a.target||a.srcElement;b.className=b.className.replace(this.config.animateClass,"").trim()}}},{key:"customStyle",value:function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a}},{key:"vendorSet",value:function(a,b){for(var c in b)if(b.hasOwnProperty(c)){var d=b[c];a[""+c]=d;for(var e=0;e<this.vendors.length;e++){var f=this.vendors[e];a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=d}}}},{key:"vendorCSS",value:function(a,b){for(var c=q(a),d=c.getPropertyCSSValue(b),e=0;e<this.vendors.length;e++){var f=this.vendors[e];d=d||c.getPropertyCSSValue("-"+f+"-"+b)}return d}},{key:"animationName",value:function(a){var b=void 0;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=q(a).getPropertyValue("animation-name")}return"none"===b?"":b}},{key:"cacheAnimationName",value:function(a){return this.animationNameCache.set(a,this.animationName(a))}},{key:"cachedAnimationName",value:function(a){return this.animationNameCache.get(a)}},{key:"scrollHandler",value:function(){this.scrolled=!0}},{key:"scrollCallback",value:function(){if(this.scrolled){this.scrolled=!1;for(var a=[],b=0;b<this.boxes.length;b++){var c=this.boxes[b];if(c){if(this.isVisible(c)){this.show(c);continue}a.push(c)}}this.boxes=a,this.boxes.length||this.config.live||this.stop()}}},{key:"offsetTop",value:function(a){for(;void 0===a.offsetTop;)a=a.parentNode;for(var b=a.offsetTop;a.offsetParent;)a=a.offsetParent,b+=a.offsetTop;return b}},{key:"isVisible",value:function(a){var b=a.getAttribute("data-wow-offset")||this.config.offset,c=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,d=c+Math.min(this.element.clientHeight,k())-b,e=this.offsetTop(a),f=e+a.clientHeight;return d>=e&&f>=c}},{key:"disabled",value:function(){return!this.config.mobile&&f(navigator.userAgent)}}]),a}();b["default"]=r,a.exports=b["default"]});]]></content>
       
     </entry>
     
