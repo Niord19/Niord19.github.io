@@ -8,7 +8,7 @@
       <link href="/2023/04/06/ControlNet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/04/06/ControlNet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A013(Article013) --><p>首先本章要介绍的ControlNet是Stable Diffusion WebUI中的一个重要插件，它可以帮助AI绘制出我们想要的“姿态”、“手”与“物件”。可以让WebUI免于“抽卡”，实现绘图姿态自由。</p><h1 id="0-ControlNet安装流程"><a href="#0-ControlNet安装流程" class="headerlink" title="0. ControlNet安装流程"></a>0. ControlNet安装流程</h1><p>打开WebUI,点击“扩展”(Extensions)菜单栏。在“扩展的git仓库网址”(URL for extension’s repository)参数栏中输入controlnet的git仓库地址：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Mikubill/sd-webui-controlnet</span><br></pre></td></tr></table></figure><br>然后点击安装，回到“设置”菜单栏重启WebUI以激活ControlNet插件。<br>此时如果安装成功的话，就可以在文生图的首页看见“controlnet”的插件框了。</p><h1 id="1-ControlNet模型下载"><a href="#1-ControlNet模型下载" class="headerlink" title="1. ControlNet模型下载"></a>1. ControlNet模型下载</h1><p>controlnet需要另外安装自己的控制模型来进行辅助。<br>原本的大型预训练模型： <a href="https://huggingface.co/lllyasviel/ControlNet/tree/main/models">https://huggingface.co/lllyasviel/ControlNet/tree/main/models</a><br>而压缩模型、第三方模型：<a href="https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models">https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models</a><br>其中：</p><ol><li>大型预训练模型有8个5.71GB的大模型</li><li>精简模型在第二个链接中，以“coadapter”开头，一共有6个（加载运算时间更短，对设备更友好）【推荐】</li><li>第三方模型是TX提供的，更快更小，而且有新功能color和style两个新模型。</li></ol><p>其中各个模型与ControlNet预处理器的对应关系如下图所示：<br><img src="https://s2.loli.net/2023/04/07/WCnPXdYqEJIpMVa.png" alt="A013-1.png"></p><p>我们需要把下载好的ControlNet模型丢到—&gt;启动器根目录下的<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\extensions\sd-webui-controlnet\models</span><br></pre></td></tr></table></figure><br>目录下，就OK拉！</p><h1 id="2-ControlNet插件参数介绍"><a href="#2-ControlNet插件参数介绍" class="headerlink" title="2. ControlNet插件参数介绍"></a>2. ControlNet插件参数介绍</h1><p>这里主要介绍一些大众常用的参数调节，由于ControlNet插件仍处于高频更新状态，所以可能界面大家都不太一样，但是主要的参数不会变化太多。</p><ol><li>启用：就是选了就启用</li><li>低显存优化：显存不够就选它（有时候我6G显存也会爆，就靠它了）</li><li>预处理器下拉菜单：每一个预处理器都决定了ControlNet不同的功能。（预处理器和模型都需要对应使用）</li><li>权重：Controlnet的发挥占比（低重绘+高权重=锁定图片细节/更改画风滤镜；高重绘+低权重=修改图片细节）</li><li>引导介入时机（输入权重）/引导退出时机（输出权重）：分别代表了ControlNet在第几步开始介入/退出。</li><li>画布宽高：ControlNet影响的画布大小（与生成的宽高比无关）</li><li>预处理预览：可以看见各个预处理器的预渲染。</li></ol><h1 id="3-Controlnet预处理器介绍"><a href="#3-Controlnet预处理器介绍" class="headerlink" title="3. Controlnet预处理器介绍"></a>3. Controlnet预处理器介绍</h1><p>每个ControlNet预处理器都有着不同的功能，下面就进行介绍：</p><h2 id="3-1-Canny-边缘检测"><a href="#3-1-Canny-边缘检测" class="headerlink" title="3.1 Canny (边缘检测)"></a>3.1 Canny (边缘检测)</h2><p>“线稿”，用于标注轮廓，褶皱，动作，表情。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A013(Article013) --><p>首先本章要介绍的ControlNet是Stable Diffusion WebUI中的一个重要插件，它可以帮助AI绘制出我们想要的“姿态”、“手”与“物件”。可以让WebUI免于“抽卡”，实现绘图姿态自由。</p><h1 id="0-ControlNet安装流程"><a href="#0-ControlNet安装流程" class="headerlink" title="0. ControlNet安装流程"></a>0. ControlNet安装流程</h1><p>打开WebUI,点击“扩展”(Extensions)菜单栏。在“扩展的git仓库网址”(URL for extension’s repository)参数栏中输入controlnet的git仓库地址：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Mikubill/sd-webui-controlnet</span><br></pre></td></tr></table></figure><br>然后点击安装，回到“设置”菜单栏重启WebUI以激活ControlNet插件。<br>此时如果安装成功的话，就可以在文生图的首页看见“controlnet”的插件框了。</p><h1 id="1-ControlNet模型下载"><a href="#1-ControlNet模型下载" class="headerlink" title="1. ControlNet模型下载"></a>1. ControlNet模型下载</h1><p>controlnet需要另外安装自己的控制模型来进行辅助。<br>原本的大型预训练模型： <a href="https://huggingface.co/lllyasviel/ControlNet/tree/main/models">https://huggingface.co/lllyasviel/ControlNet/tree/main/models</a><br>而压缩模型、第三方模型：<a href="https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models">https://huggingface.co/TencentARC/T2I-Adapter/tree/main/models</a><br>其中：</p><ol><li>大型预训练模型有8个5.71GB的大模型</li><li>精简模型在第二个链接中，以“coadapter”开头，一共有6个（加载运算时间更短，对设备更友好）【推荐】</li><li>第三方模型是TX提供的，更快更小，而且有新功能color和style两个新模型。</li></ol><p>其中各个模型与ControlNet预处理器的对应关系如下图所示：<br><img src="https://s2.loli.net/2023/04/07/WCnPXdYqEJIpMVa.png" alt="A013-1.png"></p><p>我们需要把下载好的ControlNet模型丢到—&gt;启动器根目录下的<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\extensions\sd-webui-controlnet\models</span><br></pre></td></tr></table></figure><br>目录下，就OK拉！</p><h1 id="2-ControlNet插件参数介绍"><a href="#2-ControlNet插件参数介绍" class="headerlink" title="2. ControlNet插件参数介绍"></a>2. ControlNet插件参数介绍</h1><p>这里主要介绍一些大众常用的参数调节，由于ControlNet插件仍处于高频更新状态，所以可能界面大家都不太一样，但是主要的参数不会变化太多。</p><ol><li>启用：就是选了就启用</li><li>低显存优化：显存不够就选它（有时候我6G显存也会爆，就靠它了）</li><li>预处理器下拉菜单：每一个预处理器都决定了ControlNet不同的功能。（预处理器和模型都需要对应使用）</li><li>权重：Controlnet的发挥占比（低重绘+高权重=锁定图片细节/更改画风滤镜；高重绘+低权重=修改图片细节）</li><li>引导介入时机（输入权重）/引导退出时机（输出权重）：分别代表了ControlNet在第几步开始介入/退出。</li><li>画布宽高：ControlNet影响的画布大小（与生成的宽高比无关）</li><li>预处理预览：可以看见各个预处理器的预渲染。</li></ol><h1 id="3-Controlnet预处理器介绍"><a href="#3-Controlnet预处理器介绍" class="headerlink" title="3. Controlnet预处理器介绍"></a>3. Controlnet预处理器介绍</h1><p>每个ControlNet预处理器都有着不同的功能，下面就进行介绍：</p><h2 id="3-1-Canny-边缘检测"><a href="#3-1-Canny-边缘检测" class="headerlink" title="3.1 Canny (边缘检测)"></a>3.1 Canny (边缘检测)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canny (Canny 边缘检测 (Canny edge detection)) -- control_sd15_canny</span><br></pre></td></tr></table></figure><p>“线稿”预处理器，用于标注轮廓，褶皱，动作，表情。多用于3转2（二次元开心）<br>缺点：主体容易受到背景轮廓影响。<br>具体参数：</p><ul><li>预处理器分辨率：线稿的细节强度（分辨率越高线稿越细致）</li><li>弱/强边缘判断：数值越大，检测到的细节就越少。（用于手绘线稿）</li></ul><h2 id="3-2-HED-边缘检测"><a href="#3-2-HED-边缘检测" class="headerlink" title="3.2 HED (边缘检测)"></a>3.2 HED (边缘检测)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hed (HED 边缘检测 (soft HED edge detection, 保留细节)) -- control_sd15_hed [fef5e48e]</span><br></pre></td></tr></table></figure><p>也是一种线稿类预处理器，但细节程度不可以调整。但是其可以保留光影效果，且在表现上高于Canny，所以更推荐HED</p><h2 id="3-3-Depth-深度检测"><a href="#3-3-Depth-深度检测" class="headerlink" title="3.3 Depth (深度检测)"></a>3.3 Depth (深度检测)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">depth (MiDaS 深度信息估算 (MiDaS depth estimation))/或者其他depth预处理器比如lerse -- control_sd15_depth [fef5e48e]</span><br></pre></td></tr></table></figure><p>depth系列作为深度检测，都可以获取景深（画面越白，离我们越近）<br>缺点：无法捕捉细节<br>所以常用于更换画风/主体/更换背景</p><p>【如何利用Depth更换背景？】</p><ol><li>先丢一张图片到controlnet插件中，点击启用和guess mode。</li><li>文生图中输入背景信息（负面prompt可以用EasyNegative，采样建议使用DPM++ 2M Karras）</li><li>调整一下controlnet的权重到0.4-0.5左右。</li><li>生成！</li></ol><h2 id="3-4-MLSD-线性检测"><a href="#3-4-MLSD-线性检测" class="headerlink" title="3.4 MLSD (线性检测)"></a>3.4 MLSD (线性检测)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mlsd (M-LSD 线条检测 (M-LSD line detection)) -- control_sd15_mlsd [fef5e48e]</span><br></pre></td></tr></table></figure><p>这个预处理器对线性十分敏感，不会改变图片的结构和透视关系，所以在房屋建筑/室内设计中很常用。<br>对于直线/棱角的检测很优秀。<br>可以通过添加“nobody”tag，去除示意图中的人物，只留下室内图。</p><h2 id="3-5-Normal-map-法线贴图"><a href="#3-5-Normal-map-法线贴图" class="headerlink" title="3.5 Normal map (法线贴图)"></a>3.5 Normal map (法线贴图)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">normal_map (法线贴图 (Normal map)) -- control_sd15_normal [fef5e48e]</span><br></pre></td></tr></table></figure><p>这个预处理器通过计算光线在每一个切面上的法线反射，生成一种凹凸的效果。因此，常用于检测主体，构建光影。<br>适合单主体/3D建模。<br>其中，背景识别阈值可以用于调整背景的识别（阈值越高，背景识别的可能性就越低，但是主体也有概率被吃掉）<br>总结来说，其功能为去除背景/保留光影。</p><h2 id="3-6-Openpose-姿态检测-【❤】"><a href="#3-6-Openpose-姿态检测-【❤】" class="headerlink" title="3.6 Openpose (姿态检测)【❤】"></a>3.6 Openpose (姿态检测)【❤】</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(OpenPose 姿态检测 (OpenPose pose detection)) -- control_sd15_openpose [fef5e48e]</span><br></pre></td></tr></table></figure><p>openpose可以用于判断主体的姿态动作，常配合另一个插件“openpose editor”<br>仓库地址如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/fkunn1326/openpose-editor</span><br></pre></td></tr></table></figure><br>从菜单栏打开openpose编辑器，主要要注意的有画布的宽高，以及“Detect from Image”可以从现成的图片识别姿态（半身图有概率识别出BUG）<br>调整好姿态以后，就可以点击文生图转到文生图的Controlnet插件中。<br>注意：此时，预处理器要选“none”，模型依旧“control_sd15_openpose [fef5e48e]”没有关系。</p><h2 id="3-7-Segmentation-语意分割"><a href="#3-7-Segmentation-语意分割" class="headerlink" title="3.7 Segmentation (语意分割)"></a>3.7 Segmentation (语意分割)</h2><p>用于修改风景图/室内设计图。</p><h2 id="3-8-Scribble-涂鸦"><a href="#3-8-Scribble-涂鸦" class="headerlink" title="3.8 Scribble (涂鸦)"></a>3.8 Scribble (涂鸦)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scribble (涂鸦 (scibble)) -- control_sd15_scribble [fef5e48e]</span><br></pre></td></tr></table></figure><p>这个预处理器用于拯救手残，画稿上色等领域。<br>只有拥有一定绘画基础的人才能驾御住。</p><h2 id="3-9-Fake-scribble-伪涂鸦"><a href="#3-9-Fake-scribble-伪涂鸦" class="headerlink" title="3.9 Fake scribble (伪涂鸦)"></a>3.9 Fake scribble (伪涂鸦)</h2><p>常用于材质更换，（设计图洗稿？）</p>]]></content>
       
       
       <categories>
@@ -530,6 +530,17 @@
     
     
     <entry>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -553,17 +564,6 @@
     
     <entry>
       <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/css/universe.css"/>
       <url>/css/universe.css</url>
       
@@ -574,11 +574,11 @@
     
     
     <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title></title>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
       
     </entry>
     
@@ -596,33 +596,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>友链中心</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
       
     </entry>
     
@@ -640,6 +629,28 @@
     
     
     <entry>
+      <title>标签页</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>音乐页</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
@@ -651,11 +662,11 @@
     
     
     <entry>
-      <title>标签页</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title></title>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
@@ -678,17 +689,6 @@
       <url>/js/wowjs/wow_init.js</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
