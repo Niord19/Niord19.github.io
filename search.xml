@@ -4,6 +4,68 @@
   
     
     <entry>
+      <title>SD-WebUI的Tag书写要点</title>
+      <link href="/2023/04/07/SD-WebUI%E7%9A%84Tag%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9/"/>
+      <url>/2023/04/07/SD-WebUI%E7%9A%84Tag%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A014(Article014) --><h1 id="基于Nyan-Mix模型的tag分析"><a href="#基于Nyan-Mix模型的tag分析" class="headerlink" title="基于Nyan Mix模型的tag分析"></a>基于Nyan Mix模型的tag分析</h1><h2 id="0-一个tag案例"><a href="#0-一个tag案例" class="headerlink" title="0. 一个tag案例"></a>0. 一个tag案例</h2><p>正向tag:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(Highest picture quality),(Master&#x27;s work),(ultra-detailed),(Detailed eye description:1.0),(lens flare:1.0),     //画质词</span><br><span class="line">(movie poster:1.0),(Tarot border:1.0),the portrait is centered,(close-up:1.0),(nagative space:0.8),(negative space:1.6),(solo),(floating colorful &#123;wind|water magic|ink|crystals|ice|fire|flame|lightning|web|rocks|sand|particles|sparkles|blood&#125;:1.0),(many colorful &#123;soap bubbles|clouds|thorns|spikes|vines|currents|spirals|halos|wings|tatoos|cubes|octahedron&#125;:1.0),(floating &#123;red|green|blue|aqua|purple|yellow|black|white|grey|pink|orange|lime&#125; &#123;ribbons|feathers|particles|blades|droplets|snowflakes|soft balls&#125;:1.0),(&#123;crystal|ice|fire|flame|wind|water|earth|stone|space|musical|sonic|vortex&#125; &#123;magic|wings&#125;:1.0), (&#123;ray tracing,glowing|dappled sunlight,light rays,caustics|night,black theme|mysterious,eerie|easygoing,pastel&#125;:1.2), (&#123;colorful|iridescent|multicolored&#125;:1.0),(beautiful detailed glow:1.0),    //风格词</span><br><span class="line">(&#123;leaning forward|leaning back|leaning to the side|&#125;:1.2),  //姿态</span><br><span class="line">&#123;(smile:1.0)|(smirk:1.0)|(grim expression:1.0)&#125;,(&#123;small|small||lips,eyelashes&#125;:1.0),&#123;(open mouth:1.0)|(closed mouth:1.0)|&#125;,(&#123;eyelashes|eyeshadow||&#125;),&#123;one eye closed|||&#125;,(&#123;red|green|blue|aqua|purple|yellow|black|white|grey|pink|orange|lime&#125; hair:1.4),(&#123;short|long|medium&#125; hair:1.0),(&#123;from below|from above|from side|from behind|facing viewer&#125;:1.3),(halo:1.3),(head tilt:1.0),(dynamic pose:1.1),(asymmetrical hair:1.2),(&#123;red|green|blue|aqua|purple|yellow|black|white|grey|pink|orange|lime&#125;         //表情，面容，头发</span><br><span class="line">&#123;armor|dress|collared shirt|suit|outfit&#125;:1.0),(&#123;formal|military|techwear|urban style|casual,casual clothes|fantasy,magician|feral,tribal|sci-fi,futuristic&#125;),(&#123;plaid skirt|layered skirt|puffy dress|tights|pants|shorts&#125;),     //衣装</span><br><span class="line">(&#123;red|green|blue|aqua|purple|yellow|black|white|grey|pink|orange|lime&#125; &#123;eyes|eyes|pupils&#125;:1.4),&#123;(forehead:1.5),asymmetrical bangs|diagonal bangs|hair between eyes|blunt bangs|swept bangs&#125;,&#123;one eye covered|ponytail|high twintails|||&#125;,&#123;straight hair|wavy hair|drill hair||&#125;,        //眼睛，刘海，头发</span><br><span class="line">&#123;long coat|suit jacket|cloak|sweater|tie||&#125;,&#123;(floating cape:1.0),|&#125; //外部衣装</span><br><span class="line">(&#123;fox ears, fox girl|vampire, bat wings|pointy ears,(elf:0.5)||&#125;:1.1),    //人设</span><br><span class="line">(&#123;abstract background|city,skyscraper|forest,garden|castle|shrine|cave,underground|swamp|lake|winter|alien planet|&#125;:1.4),(&#123;indoors,inside|outdoors,outside&#125;:1.1),       //背景设定</span><br><span class="line">&#123;2$$witch hat|straw hat|crown|tiara|eyewear|glasses|heargear|hair flower|hairpin|hair bow|||&#125;,      //饰品</span><br><span class="line">(&#123;sitting|flying|jumping|laying|standing|standing on one leg&#125;:1.1),(&#123;colored skin|white skin|blue skin|pale skin|tan|shiny skin|dark skin||&#125;:1.1),(&#123;full body|upper body|portrait|&#125;:1.25),  //姿态，肤色，身像</span><br><span class="line">&#123;fang, skin fang|tongue|frown|lip biting|thinking|||||&#125;, &#123;empty eyes| symbol-shaped pupils, heart-shaped pupils| slit pupils, + +|||||&#125;     //神态</span><br></pre></td></tr></table></figure><br>负面tag:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nsfw, (EasyNegative), [[[[[bad-artist-anime, sketch by bad-artist]]]]], [[[mutation, lowres, bad hands, [text, signature, watermark, username], blurry, monochrome, grayscale, realistic, simple background, limited palette]]], close-up, (swimsuit, cleavage, armpits, ass, navel, cleavage cutout), (forehead jewel:1.2), (forehead mark:1.5), (bad and mutated hands:1.3), (worst quality:2.0), (low quality:2.0), (blurry:2.0), multiple limbs, bad anatomy, (interlocked fingers:1.2),(interlocked leg:1.2), Ugly Fingers, (extra digit and hands and fingers and legs and arms:1.4), (deformed fingers:1.2), (long fingers:1.2)</span><br></pre></td></tr></table></figure></p><h2 id="1-常规tag写法"><a href="#1-常规tag写法" class="headerlink" title="1. 常规tag写法"></a>1. 常规tag写法</h2><p>1.分隔：不同的关键词tag之间，需要使用英文逗号,分隔，逗号前后有空格或者换行是不碍事的<br>e.g. 1girl,loli,long hair,low twintails（1个女孩，loli，长发，低双马尾）</p><p>2.混合：WebUi 使用 | 分隔多个关键词，实现混合多个要素，注意混合是同等比例混合，同时混。<br>e.g. 1girl,red|blue hair, long hair（1个女孩，红色与蓝色头发混合，长发）</p><p>3.增强/减弱：有两种写法<br>第一种 (提示词:权重数值)：数值从0.1~100，默认状态是1,低于1就是减弱，大于1就是加强<br>e.g. (loli:1.21),(one girl:1.21),(cat ears:1.1),(flower hairpin:0.9)</p><p>第二种 (((提示词)))，每套一层()括号增强1.1倍,每套一层[]减弱1.1倍。也就是套两层是1.1*1.1=1.21倍，套三层是1.331倍，套4层是1.4641倍。<br>e.g. ((loli)),((one girl)),(cat ears),[flower hairpin]和第一种写法等价</p><p>4.渐变：先按某种关键词生成，然后再此基础上向某个方向变化。<br>[关键词1:关键词2:数字X]<br>(i) 数字大于1时: 第X步前为关键词1，第X步后变成关键词2;<br>(ii) 数字小于1时: 总步数的百分之X前为关键词1，之后变成关键词2。</p><p>e.g. a girl with very long [white:yellow:16] hair 等价为<br>开始 a girl with very long white hair<br>16步之后a girl with very long yellow hair</p><p>e.g. a girl with very long [white:yellow:0.5] hair 等价为<br>开始 a girl with very long white hair<br>50%步之后a girl with very long yellow hair</p><h2 id="2-tag书写要点"><a href="#2-tag书写要点" class="headerlink" title="2. tag书写要点"></a>2. tag书写要点</h2><ol><li>将关键词控制在75个（100个）以内。</li><li>越关键的词，越往前放。</li><li>相似的同类，放在一起。</li><li>只写必要的关键词。</li></ol><h2 id="3-tag安排顺序"><a href="#3-tag安排顺序" class="headerlink" title="3. tag安排顺序"></a>3. tag安排顺序</h2><p>画质词&gt;&gt;<br>风格词&gt;&gt;<br>主体&gt;&gt;<br>外表：<br>发型，发色，衣服，<br>头部，颈部，手臂，<br>胸部，腹部，屁股，<br>腿部，脚部&gt;&gt;<br>表情&gt;&gt;<br>姿势&gt;&gt;<br>图片背景&gt;&gt;<br>NSFW/细节&gt;&gt;</p><p>例如：<br>(masterpiece:1.331), best quality,<br>illustration,<br>(1girl),<br>(deep pink hair:1.331), (wavy hair:1.21),(disheveled hair:1.331), messy hair, long bangs, hairs between eyes,(white hair:1.331), multicolored hair,(white bloomers:1.46),(open clothes),<br>beautiful detailed eyes, (purple|red eyes),<br>expressionless,<br>sitting,<br>dark background, moonlight, ,flower_petals,city,full_moon, </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI绘图 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Stable Diffusion </tag>
+            
+            <tag> WebUI </tag>
+            
+            <tag> Tag </tag>
+            
+            <tag> Prompt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python 学习笔记1</title>
+      <link href="/2023/04/07/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/2023/04/07/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A012(Article012) --><p>Python学习推荐看菜鸟教程（中文）：<a href="https://www.runoob.com/python/python-tutorial.html">https://www.runoob.com/python/python-tutorial.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ControlNet插件使用手册</title>
       <link href="/2023/04/06/ControlNet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/04/06/ControlNet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
@@ -33,19 +95,6 @@
             <tag> 插件 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2023/04/03/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-      <url>/2023/04/03/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-      
       
     </entry>
     
@@ -530,77 +579,11 @@
     
     
     <entry>
-      <title>网页版小游戏集合</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>动漫页</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友链中心</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -640,6 +623,61 @@
     
     
     <entry>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链中心</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>动漫页</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>音乐页</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
@@ -662,6 +700,28 @@
     
     
     <entry>
+      <title>网页版小游戏集合</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/js/wowjs/wow.min.js"/>
       <url>/js/wowjs/wow.min.js</url>
@@ -678,17 +738,6 @@
       <url>/js/wowjs/wow_init.js</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
