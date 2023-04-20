@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>SD-WebUI的模型与配置使用笔记</title>
+      <link href="/2023/04/20/SD-WebUI%E7%9A%84%E6%A8%A1%E5%9E%8B%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/04/20/SD-WebUI%E7%9A%84%E6%A8%A1%E5%9E%8B%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这篇文章主要对SD-WebUI所需的模型/插件等工具进行一个分类与梳理，便于记忆。</p><h1 id="0-一些相关网址"><a href="#0-一些相关网址" class="headerlink" title="0. 一些相关网址"></a>0. 一些相关网址</h1><p>模型辨别工具：spell.novelai.dev (可以用于分辨各个模型的类型)<br>模型分享网址：<a href="https://civitai.com">https://civitai.com</a> (有大量不同的模型可以下载学习)</p><h1 id="1-SD大模型"><a href="#1-SD大模型" class="headerlink" title="1. SD大模型"></a>1. SD大模型</h1><p>基本定义：SD大模型，也称Stable Diffusion大模型，现在也被叫做“底模”。<br>特征特点：格式后缀通常为”ckpt”, “safetensors”等。<br>安装路径：./models/Stable_diffusion<br>使用方式：在主界面的顶部第一个下拉菜单中进行选择。</p><h1 id="2-VAE"><a href="#2-VAE" class="headerlink" title="2. VAE"></a>2. VAE</h1><p>基本定义：变分什么什么编码器，通常就叫VAE，功能类似滤镜+微调。<br>特征特点：通常与部分大模型进行配套使用。<br>安装路径：./models/VAE<br>使用方式：在主界面顶部的SD VAE下拉菜单中进行选择。（可能需要在设置里设置显示）</p><h1 id="3-Embedding"><a href="#3-Embedding" class="headerlink" title="3. Embedding"></a>3. Embedding</h1><p>基本定义：是一种集合了大量提示词的模型，也叫“提示词打包(Textual Inversion)”，可以理解为高速吟唱。<br>特征特点：体积较小(几十KB)，多用做负面集合/多视图生成，节省提示词空间。<br>安装路径：./embeddings<br>使用方式：点击“生成”按钮下方的“红色卡片”按钮，点击目标embedding，添加集合词到文本框里。</p><h1 id="4-LoRA"><a href="#4-LoRA" class="headerlink" title="4. LoRA"></a>4. LoRA</h1><p>基本定义：该类模型可实现对特定人物物品的复刻，即提取特征。<br>特征特点：大小从100+MB到几百MB不等。<br>安装路径：./models/Lora<br>使用方式：点击“生成”按钮下方的“红色卡片”按钮，点击LoRA，选择目标LoRA模型，会添加带尖括号的lora触发词到文本框里。<br>注意事项：最好选择作者给出的大模型并去加载，并且抄点正负提示词，效果更好。</p><h1 id="5-Hypernetworks"><a href="#5-Hypernetworks" class="headerlink" title="5. Hypernetworks"></a>5. Hypernetworks</h1><p>基本定义：也叫做“超网络模型”，可通俗视为低配LoRA。<br>特征特点：不常用，但用于画风转换是当前的最优解。<br>安装路径：./models/hypernetworks<br>使用方式：使用红色卡片点击，添加触发词到文本框中。</p><h1 id="6-ControlNet"><a href="#6-ControlNet" class="headerlink" title="6. ControlNet"></a>6. ControlNet</h1><p>基本定义：controlnet是个插件，但他需要对应的模型去进行处理，其中最常用的就有姿态控制（结合openpose插件去实现）。<br>特征特点：安装好插件后，需要选择对应的预处理器以及处理模型来进行图像处理。<br>插件的处理模型放置路径：./extensions/sd-webui-controlnet/models<br>使用方式：（他就是个插件，直接用就行）<br>注意事项：需要注意对应预处理器和模型，详见对应表。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI绘图 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Stable Diffusion </tag>
+            
+            <tag> WebUI </tag>
+            
+            <tag> Tag </tag>
+            
+            <tag> Prompt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SD-WebUI的Tag书写要点</title>
       <link href="/2023/04/07/SD-WebUI%E7%9A%84Tag%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9/"/>
       <url>/2023/04/07/SD-WebUI%E7%9A%84Tag%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9/</url>
@@ -218,9 +253,9 @@
       
         <tags>
             
-            <tag> 小说 </tag>
-            
             <tag> ChatGPT </tag>
+            
+            <tag> 小说 </tag>
             
         </tags>
       
@@ -590,6 +625,17 @@
     
     
     <entry>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
@@ -617,17 +663,6 @@
       <url>/css/universe.css</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -678,9 +713,31 @@
     
     
     <entry>
+      <title>音乐页</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://music.163.com/radio/?id=987252984&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/K6XElkTrBbxC4Ih.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的AI歌姬</span><span class="desc"> 基于vits制作的AI歌姬【我自己的声音】</span></div></a><a class="site-card" href="https://music.163.com/playlist?id=134336917&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/o7ZS5Lr3WA1FPY8.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的红心歌单</span><span class="desc"> 网易云-我的红心歌单【可能有点杂】</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>友链中心</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签页</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
@@ -694,28 +751,6 @@
       <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/6nbUQeJVcAoCjul.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐页</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://music.163.com/radio/?id=987252984&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/K6XElkTrBbxC4Ih.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的AI歌姬</span><span class="desc"> 基于vits制作的AI歌姬【我自己的声音】</span></div></a><a class="site-card" href="https://music.163.com/playlist?id=134336917&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/o7ZS5Lr3WA1FPY8.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的红心歌单</span><span class="desc"> 网易云-我的红心歌单【可能有点杂】</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签页</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
