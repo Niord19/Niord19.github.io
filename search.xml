@@ -8,7 +8,7 @@
       <link href="/2023/05/08/Ubuntu%E7%B3%BB%E7%BB%9F%E5%92%8CROS%E7%9A%84%E5%AE%89%E8%A3%85%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
       <url>/2023/05/08/Ubuntu%E7%B3%BB%E7%BB%9F%E5%92%8CROS%E7%9A%84%E5%AE%89%E8%A3%85%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文记录了在win10系统的笔记本上，安装Ubuntu系统，并且配置安装ROS的流程记录。</p><h1 id="1-下载并安装虚拟机"><a href="#1-下载并安装虚拟机" class="headerlink" title="1. 下载并安装虚拟机"></a>1. 下载并安装虚拟机</h1><p>首先，我们的目标是在笔记本上安装Ubuntu与ROS，为此我们为了安全性，最好将Ubuntu安装在虚拟机中。<br>这里我们选用了虚拟机VMware: <a href="https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=PLAYER-1600&amp;productId=1039&amp;rPId=51984">https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=PLAYER-1600&amp;productId=1039&amp;rPId=51984</a><br><img src="https://s2.loli.net/2023/05/08/mJ4KZ13DfR2C9Wu.png" alt="A014-01.png"><br>下载那个212.63MB大小的文件就是了。<br>然后，一路点击下一步，记得安装在一个大点的硬盘里。<br>安装完成以后，我们先转头去下载获取Ubuntu的iso文件。</p><h1 id="2-下载并安装Ubuntu"><a href="#2-下载并安装Ubuntu" class="headerlink" title="2. 下载并安装Ubuntu"></a>2. 下载并安装Ubuntu</h1><p>Ubuntu官方下载地址：<a href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a><br>鉴于后续要安装ROS，会有适配与支持的问题，所以这里我们去查历史版本，下载20.04的LTS版本。（或者去查清华镜像）<br>接下来的”Ubuntu系统安装”与”设置Linux系统”部分可以参考这份教程的内容：<br><a href="https://blog.csdn.net/weixin_43525386/article/details/108920902#comments_24167114">https://blog.csdn.net/weixin_43525386/article/details/108920902#comments_24167114</a><br>在上面这个链接的三、四章有详细介绍。<br>【2个问题】</p><ol><li>一启动虚拟机就蓝屏？你的window系统需要打开支持虚拟机的功能。可以参看下面这份文章：<br><a href="https://blog.csdn.net/aoshilang2249/article/details/72851813?locationNum=4&amp;fps=1">https://blog.csdn.net/aoshilang2249/article/details/72851813?locationNum=4&amp;fps=1</a></li><li>安装Ubuntu时UI显示出错？无法点击继续？<br>其中在虚拟机中安装Ubuntu时可能会遇到分辨率显示不全，导致“下一步”按键无法显示的问题。可以参见这一份文档的解决方案：<br><a href="https://blog.csdn.net/Passerby_Wang/article/details/124075121">https://blog.csdn.net/Passerby_Wang/article/details/124075121</a><br>经过上述操作，应该可以成功在我们的笔记本电脑中安装虚拟机中的Ubuntu系统了。</li></ol><h1 id="3-安装ROS与一万个坑"><a href="#3-安装ROS与一万个坑" class="headerlink" title="3. 安装ROS与一万个坑"></a>3. 安装ROS与一万个坑</h1><p>经过前两章中的折腾，我们成功安装了一个基于虚拟机的Ubuntu系统，接下来我们需要通过Ubuntu的系统终端去安装ROS。<br>首先我们可以按Ctrl+Alt+T打开终端，并把终端固定在侧边栏上，方便后续打开。<br>然后，参看这份文章去安装ROS:<br><a href="https://blog.csdn.net/PlutooRx/article/details/127558240">https://blog.csdn.net/PlutooRx/article/details/127558240</a><br>在第三部分，配置ROS时可能会显示rosdep这个库并没有可安装候选<br><img src="https://s2.loli.net/2023/05/08/WZRgnOaXAUiy6kQ.jpg" alt="A014-02.jpg"><br>初步推测是因为软件源中缺少对应的库文件导致的，所以需要另外安装python的pip去安装rosdep这个库。<br>具体解决方案可以看这个文章的最后一部分：(你这链接好长a)<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://huaweicloud.csdn.net/63a568a8b878a54545946b55.html?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~activity-6-120579608-blog-127558240.235^v33^pc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~activity-6-120579608-blog-127558240.235^v33^pc_relevant_default_base3&amp;utm_relevant_index=12</span><br></pre></td></tr></table></figure><br>等跟着文章输入roscore后一切输出正常，就可以进行小乌龟测试辣。<br>到此为止，我们已经成功安装了Ubuntu系统和ROS。</p><h1 id="4-ROS的使用"><a href="#4-ROS的使用" class="headerlink" title="4. ROS的使用"></a>4. ROS的使用</h1>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文记录了在win10系统的笔记本上，安装Ubuntu系统，并且配置安装ROS的流程记录。</p><h1 id="1-下载并安装虚拟机"><a href="#1-下载并安装虚拟机" class="headerlink" title="1. 下载并安装虚拟机"></a>1. 下载并安装虚拟机</h1><p>首先，我们的目标是在笔记本上安装Ubuntu与ROS，为此我们为了安全性，最好将Ubuntu安装在虚拟机中。<br>这里我们选用了虚拟机VMware: <a href="https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=PLAYER-1600&amp;productId=1039&amp;rPId=51984">https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=PLAYER-1600&amp;productId=1039&amp;rPId=51984</a><br><img src="https://s2.loli.net/2023/05/08/mJ4KZ13DfR2C9Wu.png" alt="A014-01.png"><br>下载那个212.63MB大小的文件就是了。<br>然后，一路点击下一步，记得安装在一个大点的硬盘里。<br>安装完成以后，我们先转头去下载获取Ubuntu的iso文件。</p><h1 id="2-下载并安装Ubuntu"><a href="#2-下载并安装Ubuntu" class="headerlink" title="2. 下载并安装Ubuntu"></a>2. 下载并安装Ubuntu</h1><p>Ubuntu官方下载地址：<a href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a><br>鉴于后续要安装ROS，会有适配与支持的问题，所以这里我们去查历史版本，下载20.04的LTS版本。（或者去查清华镜像）<br>接下来的”Ubuntu系统安装”与”设置Linux系统”部分可以参考这份教程的内容：<br><a href="https://blog.csdn.net/weixin_43525386/article/details/108920902#comments_24167114">https://blog.csdn.net/weixin_43525386/article/details/108920902#comments_24167114</a><br>在上面这个链接的三、四章有详细介绍。<br>【2个问题】</p><ol><li>一启动虚拟机就蓝屏？<br><img src="https://s2.loli.net/2023/05/08/9fNBCTJOs5HtYKD.jpg" alt="A014-03.jpg"><br>你的window系统需要打开支持虚拟机的功能。可以参看下面这份文章：<br><a href="https://blog.csdn.net/aoshilang2249/article/details/72851813?locationNum=4&amp;fps=1">https://blog.csdn.net/aoshilang2249/article/details/72851813?locationNum=4&amp;fps=1</a></li><li>安装Ubuntu时UI显示出错？无法点击继续？<br>其中在虚拟机中安装Ubuntu时可能会遇到分辨率显示不全，导致“下一步”按键无法显示的问题。可以参见这一份文档的解决方案：<br><a href="https://blog.csdn.net/Passerby_Wang/article/details/124075121">https://blog.csdn.net/Passerby_Wang/article/details/124075121</a><br>经过上述操作，应该可以成功在我们的笔记本电脑中安装虚拟机中的Ubuntu系统了。</li></ol><h1 id="3-安装ROS与一万个坑"><a href="#3-安装ROS与一万个坑" class="headerlink" title="3. 安装ROS与一万个坑"></a>3. 安装ROS与一万个坑</h1><p>经过前两章中的折腾，我们成功安装了一个基于虚拟机的Ubuntu系统，接下来我们需要通过Ubuntu的系统终端去安装ROS。<br>首先我们可以按Ctrl+Alt+T打开终端，并把终端固定在侧边栏上，方便后续打开。<br>然后，参看这份文章去安装ROS:<br><a href="https://blog.csdn.net/PlutooRx/article/details/127558240">https://blog.csdn.net/PlutooRx/article/details/127558240</a><br>在第三部分，配置ROS时可能会显示rosdep这个库并没有可安装候选<br><img src="https://s2.loli.net/2023/05/08/WZRgnOaXAUiy6kQ.jpg" alt="A014-02.jpg"><br>初步推测是因为软件源中缺少对应的库文件导致的，所以需要另外安装python的pip去安装rosdep这个库。<br>具体解决方案可以看这个文章的最后一部分：(你这链接好长a)<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://huaweicloud.csdn.net/63a568a8b878a54545946b55.html?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~activity-6-120579608-blog-127558240.235^v33^pc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~activity-6-120579608-blog-127558240.235^v33^pc_relevant_default_base3&amp;utm_relevant_index=12</span><br></pre></td></tr></table></figure><br>等跟着文章输入roscore后一切输出正常，就可以进行小乌龟测试辣。<br><img src="https://s2.loli.net/2023/05/08/YHbSBAdowNFMUvq.png" alt="A014-04.png"><br>到此为止，我们已经成功安装了Ubuntu系统和ROS。</p><h1 id="4-ROS的使用"><a href="#4-ROS的使用" class="headerlink" title="4. ROS的使用"></a>4. ROS的使用</h1>]]></content>
       
       
       <categories>
@@ -319,9 +319,9 @@
       
         <tags>
             
-            <tag> 小说 </tag>
-            
             <tag> ChatGPT </tag>
+            
+            <tag> 小说 </tag>
             
         </tags>
       
@@ -703,10 +703,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
       
     </entry>
     
@@ -725,10 +725,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
       
     </entry>
     
@@ -746,6 +746,17 @@
     
     
     <entry>
+      <title>友链中心</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>绘画页</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
@@ -757,11 +768,11 @@
     
     
     <entry>
-      <title>友链中心</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>动漫页</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
       
     </entry>
     
@@ -779,11 +790,11 @@
     
     
     <entry>
-      <title>动漫页</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>音乐页</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://music.163.com/radio/?id=987252984&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/K6XElkTrBbxC4Ih.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的AI歌姬</span><span class="desc"> 基于vits制作的AI歌姬【我自己的声音】</span></div></a><a class="site-card" href="https://music.163.com/playlist?id=134336917&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/o7ZS5Lr3WA1FPY8.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的红心歌单</span><span class="desc"> 网易云-我的红心歌单【可能有点杂】</span></div></a></div>]]></content>
       
     </entry>
     
@@ -812,17 +823,6 @@
     
     
     <entry>
-      <title>音乐页</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://music.163.com/radio/?id=987252984&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/K6XElkTrBbxC4Ih.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的AI歌姬</span><span class="desc"> 基于vits制作的AI歌姬【我自己的声音】</span></div></a><a class="site-card" href="https://music.163.com/playlist?id=134336917&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/o7ZS5Lr3WA1FPY8.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的红心歌单</span><span class="desc"> 网易云-我的红心歌单【可能有点杂】</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Niord的AI绘图画廊</title>
       <link href="/gallery/AIsd/index.html"/>
       <url>/gallery/AIsd/index.html</url>
@@ -835,10 +835,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
+      <link href="/js/wowjs/wow_init.js"/>
+      <url>/js/wowjs/wow_init.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
       
     </entry>
     
@@ -857,10 +857,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/wowjs/wow_init.js"/>
-      <url>/js/wowjs/wow_init.js</url>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
