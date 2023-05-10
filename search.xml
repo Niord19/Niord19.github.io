@@ -8,7 +8,7 @@
       <link href="/2023/05/09/%E5%85%B3%E4%BA%8E%E8%BD%BB%E8%88%9F%E5%B0%8F%E8%BD%A6%E8%BF%9C%E7%A8%8B%E5%BB%BA%E7%AB%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%E8%AE%B0%E5%BD%95/"/>
       <url>/2023/05/09/%E5%85%B3%E4%BA%8E%E8%BD%BB%E8%88%9F%E5%B0%8F%E8%BD%A6%E8%BF%9C%E7%A8%8B%E5%BB%BA%E7%AB%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%E8%AE%B0%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A016(Article016) --><p>本文记录了使用轻舟小车建立远程通信的快速启动步骤。<br>（前提是你已经修改过相关配置文件，进行过小车远程通信，这些请按324步骤来做）</p><ol><li>启动小车电源，在连接小车的显示屏上登录系统。</li><li>在远程小车的屏幕中选择热点网络。</li><li>远程电脑连接到同一热点网络，登录Ubuntu系统。</li><li>远程电脑调出终端，使用ssh远程打开小车终端<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh nano@192.168.43.118</span><br></pre></td></tr></table></figure>这里小车ip可以用ifconfig去查看，注意主机名对应。</li><li>远程电脑ssh开一个小车终端，调用基础程式：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch qingzhou_nav qingzhou_bringup.launch</span><br></pre></td></tr></table></figure></li><li>再远程电脑ssh打开一个小车终端，调用地图激光雷达：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch qingzhou_nav qingzhou_hdmap.launch</span><br></pre></td></tr></table></figure></li><li>远程电脑直接打开一个终端输入rviz，打开可视化窗口</li><li>在Rviz中，左上角打开File—&gt;Open Config,，找到拷贝到远程电脑用的 rviz 文件夹，双击选中 gmapping.rviz</li></ol>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A016(Article016) --><p>本文记录了使用轻舟小车建立远程通信的快速启动步骤。<br>（前提是你已经修改过相关配置文件，进行过小车远程通信，这些请按324步骤来做）</p><ol><li>启动小车电源，在连接小车的显示屏上登录系统。</li><li>远程电脑和小车都连接到同一热点网络，并登录Ubuntu系统。（远程电脑的Ubuntu中需要安装ROS和SSH）</li><li>远程电脑调出终端，使用ssh远程打开小车终端<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh nano@192.168.43.118</span><br><span class="line"># ip地址会随着公用网络的不同而变化，记得使用ifconfig指令去查询小车的ip</span><br></pre></td></tr></table></figure>注意用户名（不是主机名）对应。（用户名@主机名）</li><li>配置远程Rviz(远程bashrc配置、hosts配置、虚拟机桥接设置、要确保远程电脑和轻舟机器人在 hosts 做地址映射时 IP 前三段时一样的，如 192.168.1.xx.)</li><li>将 qingzhou_ws/src/qingzhou_nav/目录下的 rviz 文件夹复制到远程电脑 home 下，用于执行远程 rviz 时调用。</li><li>断开显示屏，把小车丢在空旷的地上。</li><li>远程电脑ssh开一个小车终端，调用基础程式：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch qingzhou_nav qingzhou_bringup.launch</span><br></pre></td></tr></table></figure></li><li>再远程电脑ssh打开一个小车终端，调用地图激光雷达：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch qingzhou_nav qingzhou_hdmap.launch</span><br></pre></td></tr></table></figure></li><li>远程电脑直接打开一个终端输入rviz，打开可视化窗口</li><li>在Rviz中，左上角打开File—&gt;Open Config，找到拷贝到远程电脑用的 rviz 文件夹，双击选中 gmapping.rviz</li><li>接着就可以远程手动遥控完成建图了。</li></ol><h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><ol><li>远程电脑连接ssh，定位到小车的地图存放文件夹：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd qingzhou_ws/src/qingzhou_nav/maps/</span><br></pre></td></tr></table></figure></li><li>输入保存地图命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rosrun map_server map_saver -f 地图名</span><br></pre></td></tr></table></figure></li><li>将轻舟机器人连接电脑显示器，找到 qingzhou_ws/src/qingzhou_nav/launch 目录下的qingzhou_move_base.launch,打开后修改对应位置为新地图名。</li><li>把小车丢在同一位置的空旷的地上。</li><li>ssh-bringup+ssh-movebase+rviz-openconfig-找到copy到远程电脑的rviz文件夹的move_base.rviz</li><li>出现地图后，可通过 2D Nav Goal 发送目标点，轻舟机器人将去往相应位置。</li></ol>]]></content>
       
       
       <categories>
@@ -727,17 +727,6 @@
     
     <entry>
       <title></title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。其中评论系统需要爬高高，加载图像略慢是因为博主没有国内域名+GitHub薛定谔ping通+使用了免费图床的问题，博主没钱去购置域名绑定(擦泪)，所以主打一个能用就行（嘘，不许说出去哦）</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
       
@@ -749,43 +738,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>绘画页</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>网页版小游戏集合</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友链中心</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。其中评论系统需要爬高高，加载图像略慢是因为博主没有国内域名+GitHub薛定谔ping通+使用了免费图床的问题，博主没钱去购置域名绑定(擦泪)，所以主打一个能用就行（嘘，不许说出去哦）</p>]]></content>
       
     </entry>
     
@@ -803,11 +759,44 @@
     
     
     <entry>
-      <title>动漫页</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>网页版小游戏集合</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>绘画页</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链中心</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -847,11 +836,44 @@
     
     
     <entry>
+      <title>动漫页</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签页</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Niord的AI绘图画廊</title>
       <link href="/gallery/AIsd/index.html"/>
       <url>/gallery/AIsd/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="fj-gallery"><p><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/UiRxbK1OWwfjpDk.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/qBYhavL8yPrGUXW.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/jKd1OkyMWXib24z.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/dW9LaGeFXi5VYqO.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/qOyP3badI6ZclTC.png" alt=""></p>          </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
@@ -874,28 +896,6 @@
       <url>/js/wowjs/wow_init.js</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签页</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
