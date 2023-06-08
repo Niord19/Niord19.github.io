@@ -39,7 +39,7 @@
       <link href="/2023/06/07/JavaScript%E7%9A%84APIs%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/06/07/JavaScript%E7%9A%84APIs%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A015(Article015) --><p>JavaScript分为ECMAScript语言规范和Web APIs两个部分。<br>本文将主要记录JavaScript的Web APIs的使用部分。<br>主要注重通过BOM与DOM的操作，完成对 网页元素的控制、网页交互的控制。</p><p>大致可以分为以下各个部分：<br>DOM-获取元素，修改属性<br>DOM-事件基础（经过/点击/下拉/发布/注册/交互）【重要】<br>DOM-事件对象与委托（电梯导航）<br>DOM-节点操作（节点增删改查）<br>BOM-操作浏览器（BOM、插件、本地存储）<br>正则表达式-综合案例（限制输入，检测合法输入）</p><h1 id="1-Web-API-基础认知"><a href="#1-Web-API-基础认知" class="headerlink" title="1. Web API 基础认知"></a>1. Web API 基础认知</h1><p>APIs: 调用以使用JS去操作html与浏览器<br>分类：DOM (文档对象模型)、BOM (浏览器对象模型)<br>DOM：操作网页内容/标签，做交互<br>DOM树：将Html文档以树状结构呈现。<br><img src="https://s2.loli.net/2023/06/08/y48EgwlKkLAp1sG.png" alt="A015-1-1-DOM树.png"></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A015(Article015) --><p>JavaScript分为ECMAScript语言规范和Web APIs两个部分。<br>本文将主要记录JavaScript的Web APIs的使用部分。<br>主要注重通过BOM与DOM的操作，完成对 网页元素的控制、网页交互的控制。</p><p>大致可以分为以下各个部分：<br>DOM-获取元素，修改属性<br>DOM-事件基础（经过/点击/下拉/发布/注册/交互）【重要】<br>DOM-事件对象与委托（电梯导航）<br>DOM-节点操作（节点增删改查）<br>BOM-操作浏览器（BOM、插件、本地存储）<br>正则表达式-综合案例（限制输入，检测合法输入）</p><h1 id="1-Web-API-基础认知"><a href="#1-Web-API-基础认知" class="headerlink" title="1. Web API 基础认知"></a>1. Web API 基础认知</h1><h2 id="1-1-API"><a href="#1-1-API" class="headerlink" title="1.1 API"></a>1.1 API</h2><p>APIs: 调用以使用JS去操作html与浏览器<br>分类：DOM (文档对象模型)、BOM (浏览器对象模型)</p><h2 id="1-2-DOM、DOM树、DOM对象"><a href="#1-2-DOM、DOM树、DOM对象" class="headerlink" title="1.2 DOM、DOM树、DOM对象"></a>1.2 DOM、DOM树、DOM对象</h2><p>DOM：操作网页内容/标签，做交互。</p><p>DOM树：将Html文档以树状结构呈现。<br><img src="https://s2.loli.net/2023/06/08/y48EgwlKkLAp1sG.png" alt="A015-1-1-DOM树.png"></p><p>DOM对象：浏览器根据网页标签，在js中生成的JS对象。<br>所有的标签属性都可以在这个DOM对象上找到；且修改对象属性会自动映射到标签的呈现上。</p><p>[总结] DOM的想法是把网页标签都化成DOM对象来进行处理。<br>例如最大的DOM对象，document，使用 document.write() 就是一种DOM对象的使用。</p><h2 id="1-3-获取DOM对象"><a href="#1-3-获取DOM对象" class="headerlink" title="1.3 获取DOM对象"></a>1.3 获取DOM对象</h2><h3 id="1-3-1-css选择器获取DOM对象"><a href="#1-3-1-css选择器获取DOM对象" class="headerlink" title="1.3.1 css选择器获取DOM对象"></a>1.3.1 css选择器获取DOM对象</h3><p>现在的主要获取方式：通过css选择器去获取DOM对象。<br>语法：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(&#x27;css选择器&#x27;)         //获取第一个 作为DOM对象</span><br><span class="line">document.querySelectorAll(&#x27;css选择器&#x27;)      //获取全部的 作为DOM对象（伪数组形式）</span><br></pre></td></tr></table></figure></p><p>一些例子：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const div = document.querySelector(&#x27;div&#x27;)       //第一个div标签</span><br><span class="line">const box = document.querySelector(&#x27;.box&#x27;)      //第一个带有box类选择器的标签</span><br><span class="line">const nav = document.querySelector(&#x27;#nav&#x27;)      //id选择器挂了nav的标签</span><br><span class="line">const li = document.querySelector(&#x27;ul li:first-child&#x27;)      //获取ul标签下的第一个li标签</span><br><span class="line">const li = document.querySelectorAll(&#x27;ul li&#x27;)      //获取ul标签下的所有li标签，返回的就是一个对象伪数组了。</span><br></pre></td></tr></table></figure></p><p><img src="https://s2.loli.net/2023/06/08/CYXHczxMyKfL471.png" alt="A015-1-3-1-通过css选择器获取DOM对象.png"></p>]]></content>
       
       
       <categories>
@@ -792,11 +792,22 @@
     
     
     <entry>
-      <title>绘画页</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 一图流 *//* 页脚与头图透明 */  #footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }/* 翻页按钮居中 */#pagination {  width: 100%;  margin: auto;}/* 页面样式调节开始 *//* --trans-light：白天模式带透明度的背景色--trans-dark： 夜间模式带透明度的背景色--border-style： 边框样式，1px solid rgb(169, 169, 169)指宽度为1px的灰色实体边框--backdrop-filter: 背景过滤器，如blur(5px) saturate(150%)表示饱和度为150%的、高斯模糊半径为5px的过滤器，这是亚克力效果的一种实现方法; */:root {  --trans-light: rgba(255, 255, 255, 0.88);  --trans-dark: rgba(25, 25, 25, 0.88);  --border-style: 1px solid rgb(169, 169, 169);  --backdrop-filter: blur(5px) saturate(150%);}/* 首页文章卡片 */#recent-posts > .recent-post-item {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 25px;  border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 18px;  border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border: var(--border-style);  border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {  background: rgba(255, 255, 255, 0.75);  backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {  background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts > .recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {  background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {  background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {  background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}[data-theme="dark"] .read-mode div#post {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
       
     </entry>
     
@@ -814,11 +825,33 @@
     
     
     <entry>
-      <title>网页版小游戏集合</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
+      <title></title>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)【已被禁】</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://beta.sparebeat.com/"><div class="img"><img src="https://s2.loli.net/2023/05/15/bQ8TAqUkYemOGLp.jpg"/></div><div class="info"><img src="https://s2.loli.net/2023/05/15/X8VOHMCWkRNEAwP.png"/><span class="title">Sparebeat (web)</span><span class="desc">一款斜轨下落4K模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>绘画页</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链中心</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -847,6 +880,17 @@
     
     
     <entry>
+      <title>网页版小游戏集合</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)【已被禁】</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://beta.sparebeat.com/"><div class="img"><img src="https://s2.loli.net/2023/05/15/bQ8TAqUkYemOGLp.jpg"/></div><div class="info"><img src="https://s2.loli.net/2023/05/15/X8VOHMCWkRNEAwP.png"/><span class="title">Sparebeat (web)</span><span class="desc">一款斜轨下落4K模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>音乐页</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
@@ -863,50 +907,6 @@
       <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>友链中心</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 一图流 *//* 页脚与头图透明 */  #footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }/* 翻页按钮居中 */#pagination {  width: 100%;  margin: auto;}/* 页面样式调节开始 *//* --trans-light：白天模式带透明度的背景色--trans-dark： 夜间模式带透明度的背景色--border-style： 边框样式，1px solid rgb(169, 169, 169)指宽度为1px的灰色实体边框--backdrop-filter: 背景过滤器，如blur(5px) saturate(150%)表示饱和度为150%的、高斯模糊半径为5px的过滤器，这是亚克力效果的一种实现方法; */:root {  --trans-light: rgba(255, 255, 255, 0.88);  --trans-dark: rgba(25, 25, 25, 0.88);  --border-style: 1px solid rgb(169, 169, 169);  --backdrop-filter: blur(5px) saturate(150%);}/* 首页文章卡片 */#recent-posts > .recent-post-item {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 25px;  border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border-radius: 18px;  border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {  background: var(--trans-light);  backdrop-filter: var(--backdrop-filter);  border: var(--border-style);  border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {  background: rgba(255, 255, 255, 0.75);  backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {  background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts > .recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {  background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {  background: transparent !important;}[data-theme="dark"] #page-header::before {  background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {  background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {  background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}[data-theme="dark"] .read-mode div#post {  background: rgba(25, 25, 25, 0.9) !important;  color: #ffffff;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
       
     </entry>
     
@@ -947,10 +947,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
+      <link href="/js/wowjs/wow_init.js"/>
+      <url>/js/wowjs/wow_init.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
       
     </entry>
     
@@ -958,10 +958,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/wowjs/wow_init.js"/>
-      <url>/js/wowjs/wow_init.js</url>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>wow = new WOW({  boxClass: 'wow',  // 当用户滚动时显示隐藏框的类名称  animateClass: 'animate__animated',  // 触发 CSS 动画的类名称（动画库默认为"animate.css"库）  offset: 0,  // 定义浏览器视口底部与隐藏框顶部之间的距离。  // 当用户滚动并到达此距离时，将显示隐藏的框。  mobile: false,  // 在移动设备上打开/关闭wow.js。  // 经测试此项配置无效。  live: true  // 在页面上检查新的 wow.js元素。})wow.init();]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
