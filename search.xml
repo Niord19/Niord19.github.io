@@ -39,7 +39,7 @@
       <link href="/2023/06/07/JavaScript%E7%9A%84APIs%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/06/07/JavaScript%E7%9A%84APIs%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A015(Article015) --><p>JavaScript分为ECMAScript语言规范和Web APIs两个部分。<br>本文将主要记录JavaScript的Web APIs的使用部分。<br>主要注重通过BOM与DOM的操作，完成对 网页元素的控制、网页交互的控制。</p><p>大致可以分为以下各个部分：<br>DOM-获取元素，修改属性<br>DOM-事件基础（经过/点击/下拉/发布/注册/交互）【重要】<br>DOM-事件对象与委托（电梯导航）<br>DOM-节点操作（节点增删改查）<br>BOM-操作浏览器（BOM、插件、本地存储）<br>正则表达式-综合案例（限制输入，检测合法输入）</p><h1 id="1-Web-API-基础认知"><a href="#1-Web-API-基础认知" class="headerlink" title="1. Web API 基础认知"></a>1. Web API 基础认知</h1><h2 id="1-1-API"><a href="#1-1-API" class="headerlink" title="1.1 API"></a>1.1 API</h2><p>APIs: 调用以使用JS去操作html与浏览器<br>分类：DOM (文档对象模型)、BOM (浏览器对象模型)</p><h2 id="1-2-DOM、DOM树、DOM对象"><a href="#1-2-DOM、DOM树、DOM对象" class="headerlink" title="1.2 DOM、DOM树、DOM对象"></a>1.2 DOM、DOM树、DOM对象</h2><p>DOM：操作网页内容/标签，做交互。</p><p>DOM树：将Html文档以树状结构呈现。<br><img src="https://s2.loli.net/2023/06/08/y48EgwlKkLAp1sG.png" alt="A015-1-1-DOM树.png"></p><p>DOM对象：浏览器根据网页标签，在js中生成的JS对象。<br>所有的标签属性都可以在这个DOM对象上找到；且修改对象属性会自动映射到标签的呈现上。</p><p>[总结] DOM的想法是把网页标签都化成DOM对象来进行处理。<br>例如最大的DOM对象，document，使用 document.write() 就是一种DOM对象的使用。</p><h2 id="1-3-获取DOM对象"><a href="#1-3-获取DOM对象" class="headerlink" title="1.3 获取DOM对象"></a>1.3 获取DOM对象</h2><h3 id="1-3-1-css选择器获取DOM对象"><a href="#1-3-1-css选择器获取DOM对象" class="headerlink" title="1.3.1 css选择器获取DOM对象"></a>1.3.1 css选择器获取DOM对象</h3><p>现在的主要获取方式：通过css选择器去获取DOM对象。<br>语法：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(&#x27;css选择器&#x27;)         //获取第一个 作为DOM对象</span><br><span class="line">document.querySelectorAll(&#x27;css选择器&#x27;)      //获取全部的 作为DOM对象（伪数组形式）</span><br></pre></td></tr></table></figure></p><p>一些例子：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const div = document.querySelector(&#x27;div&#x27;)       //第一个div标签</span><br><span class="line">const box = document.querySelector(&#x27;.box&#x27;)      //第一个带有box类选择器的标签</span><br><span class="line">const nav = document.querySelector(&#x27;#nav&#x27;)      //id选择器挂了nav的标签</span><br><span class="line">const li = document.querySelector(&#x27;ul li:first-child&#x27;)      //获取ul标签下的第一个li标签</span><br><span class="line">const li = document.querySelectorAll(&#x27;ul li&#x27;)      //获取ul标签下的所有li标签，返回的就是一个对象伪数组了。</span><br></pre></td></tr></table></figure></p><p><img src="https://s2.loli.net/2023/06/08/CYXHczxMyKfL471.png" alt="A015-1-3-1-通过css选择器获取DOM对象.png"></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A015(Article015) --><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>JavaScript分为ECMAScript语言规范和Web APIs两个部分。<br>本文将主要记录JavaScript的Web APIs的使用部分。<br>主要注重通过BOM与DOM的操作，完成对 网页元素的控制、网页交互的控制。</p><p>大致可以分为以下各个部分：<br>DOM-获取元素，修改属性<br>DOM-事件基础（经过/点击/下拉/发布/注册/交互）【重要】<br>DOM-事件对象与委托（电梯导航）<br>DOM-节点操作（节点增删改查）<br>BOM-操作浏览器（BOM、插件、本地存储）<br>正则表达式-综合案例（限制输入，检测合法输入）</p><h1 id="1-Web-API-基础认知"><a href="#1-Web-API-基础认知" class="headerlink" title="1. Web API 基础认知"></a>1. Web API 基础认知</h1><h2 id="1-1-API"><a href="#1-1-API" class="headerlink" title="1.1 API"></a>1.1 API</h2><p>APIs: 调用以使用JS去操作html与浏览器<br>分类：DOM (文档对象模型)、BOM (浏览器对象模型)</p><h2 id="1-2-DOM、DOM树、DOM对象"><a href="#1-2-DOM、DOM树、DOM对象" class="headerlink" title="1.2 DOM、DOM树、DOM对象"></a>1.2 DOM、DOM树、DOM对象</h2><p>DOM：操作网页内容/标签，做交互。</p><p>DOM树：将Html文档以树状结构呈现。<br><img src="https://s2.loli.net/2023/06/08/y48EgwlKkLAp1sG.png" alt="A015-1-1-DOM树.png"></p><p>DOM对象：浏览器根据网页标签，在js中生成的JS对象。<br>所有的标签属性都可以在这个DOM对象上找到；且修改对象属性会自动映射到标签的呈现上。</p><p>[总结] DOM的想法是把网页标签都化成DOM对象来进行处理。<br>例如最大的DOM对象，document，使用 document.write() 就是一种DOM对象的使用。</p><h2 id="1-3-获取DOM对象"><a href="#1-3-获取DOM对象" class="headerlink" title="1.3 获取DOM对象"></a>1.3 获取DOM对象</h2><h3 id="1-3-1-css选择器获取DOM对象"><a href="#1-3-1-css选择器获取DOM对象" class="headerlink" title="1.3.1 css选择器获取DOM对象"></a>1.3.1 css选择器获取DOM对象</h3><p>现在的主要获取方式：通过css选择器去获取DOM对象。<br>语法：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(&#x27;css选择器&#x27;)         //获取第一个 作为DOM对象</span><br><span class="line">document.querySelectorAll(&#x27;css选择器&#x27;)      //获取全部的 作为DOM对象（伪数组形式）</span><br></pre></td></tr></table></figure></p><p>一些例子：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const div = document.querySelector(&#x27;div&#x27;)       //第一个div标签</span><br><span class="line">const box = document.querySelector(&#x27;.box&#x27;)      //第一个带有box类选择器的标签</span><br><span class="line">const nav = document.querySelector(&#x27;#nav&#x27;)      //id选择器挂了nav的标签</span><br><span class="line">const li = document.querySelector(&#x27;ul li:first-child&#x27;)      //获取ul标签下的第一个li标签</span><br><span class="line">const li = document.querySelectorAll(&#x27;ul li&#x27;)      //获取ul标签下的所有li标签，返回的就是一个对象伪数组了。</span><br></pre></td></tr></table></figure></p><p><img src="https://s2.loli.net/2023/06/08/CYXHczxMyKfL471.png" alt="A015-1-3-1-通过css选择器获取DOM对象.png"><br>如图展示，我们就完成了一次通过css类选择器获取DOM对象，并进行修改(颜色)的操作。</p><h3 id="1-3-2-旧版的获取方式"><a href="#1-3-2-旧版的获取方式" class="headerlink" title="1.3.2 旧版的获取方式"></a>1.3.2 旧版的获取方式</h3><p>以前的老项目可能会用到这些获取写法，但现在已经被淘汰了。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&#x27;nav&#x27;)      //通过id获取一个DOM对象</span><br><span class="line">document.getElementByTagName(&#x27;div&#x27;)      //通过标签名获取全部的DOM对象</span><br><span class="line">document.getElementByClassName(&#x27;W&#x27;)      //通过类名获取全部的DOM对象</span><br></pre></td></tr></table></figure></p><h2 id="1-4-操作元素内容、属性"><a href="#1-4-操作元素内容、属性" class="headerlink" title="1.4 操作元素内容、属性"></a>1.4 操作元素内容、属性</h2><p>在1.3中，我们初步做到了获取DOM并进行修改的流程。<br>但是更多属性该如何修改呢？</p><h3 id="1-4-1-修改文本内容"><a href="#1-4-1-修改文本内容" class="headerlink" title="1.4.1 修改文本内容"></a>1.4.1 修改文本内容</h3><p>目标：用DOM更换显示的文本内容，做到类似内容刷新，倒计时的效果。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- 先创建一个带有class类选择器的div标签 --&gt;</span><br><span class="line">    &lt;div class=&quot;class&quot;&gt;这里是div标签的文本内容&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 然后使用querySelector获取带有class类选择器的标签，并作为DOM对象，存给一个叫box的对象，并进一步处理。</span><br><span class="line">        const box = document.querySelector(&#x27;.class&#x27;)</span><br><span class="line">        //这里我们的操作是输出box对象的文本内容</span><br><span class="line">        console.log(box.innerText);</span><br><span class="line">        //或者可以直接进行修改，这里的修改会自动映射到原本的标签上</span><br><span class="line">        box.innerText = &#x27;进行DOM修改后的div标签&#x27;            //这里面是纯文本，不解析标签</span><br><span class="line">        box.innerHTML = &#x27;&lt;b&gt;进行DOM修改后的div标签&lt;/b&gt;&#x27;     //这里面可以解析标签</span><br><span class="line">    &lt;/script&gt; </span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure><br>这里主要涉及到了“对象.innerText”和“对象.innerHTML”两个属性，他们都可以进行获取和修改，其中后者还可以解析标签。</p>]]></content>
       
       
       <categories>
@@ -187,13 +187,13 @@
       
         <tags>
             
-            <tag> AI </tag>
-            
-            <tag> 笔记 </tag>
-            
             <tag> Stable Diffusion </tag>
             
             <tag> WebUI </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> Tag </tag>
             
@@ -222,13 +222,13 @@
       
         <tags>
             
-            <tag> AI </tag>
-            
-            <tag> 笔记 </tag>
-            
             <tag> Stable Diffusion </tag>
             
             <tag> WebUI </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> Tag </tag>
             
@@ -284,13 +284,13 @@
       
         <tags>
             
-            <tag> AI </tag>
-            
-            <tag> 笔记 </tag>
-            
             <tag> Stable Diffusion </tag>
             
             <tag> WebUI </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> ControlNet </tag>
             
@@ -319,13 +319,13 @@
       
         <tags>
             
-            <tag> UVR </tag>
-            
             <tag> AI </tag>
             
-            <tag> 分离音轨 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> UVR </tag>
+            
+            <tag> 分离音轨 </tag>
             
             <tag> 人声提取 </tag>
             
@@ -781,6 +781,50 @@
     
     
     <entry>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>网页版小游戏集合</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)【已被禁】</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://beta.sparebeat.com/"><div class="img"><img src="https://s2.loli.net/2023/05/15/bQ8TAqUkYemOGLp.jpg"/></div><div class="info"><img src="https://s2.loli.net/2023/05/15/X8VOHMCWkRNEAwP.png"/><span class="title">Sparebeat (web)</span><span class="desc">一款斜轨下落4K模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -814,33 +858,11 @@
     
     
     <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/universe.css"/>
       <url>/css/universe.css</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>绘画页</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
       
     </entry>
     
@@ -858,55 +880,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <title>绘画页</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>网页版小游戏集合</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)【已被禁】</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://beta.sparebeat.com/"><div class="img"><img src="https://s2.loli.net/2023/05/15/bQ8TAqUkYemOGLp.jpg"/></div><div class="info"><img src="https://s2.loli.net/2023/05/15/X8VOHMCWkRNEAwP.png"/><span class="title">Sparebeat (web)</span><span class="desc">一款斜轨下落4K模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐页</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://music.163.com/radio/?id=987252984&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/K6XElkTrBbxC4Ih.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的AI歌姬</span><span class="desc"> 基于vits制作的AI歌姬【我自己的声音】</span></div></a><a class="site-card" href="https://music.163.com/playlist?id=134336917&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/o7ZS5Lr3WA1FPY8.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的红心歌单</span><span class="desc"> 网易云-我的红心歌单【可能有点杂】</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>动漫页</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
       
     </entry>
     
@@ -924,11 +902,22 @@
     
     
     <entry>
-      <title>Niord的AI绘图画廊</title>
-      <link href="/gallery/AIsd/index.html"/>
-      <url>/gallery/AIsd/index.html</url>
+      <title>动漫页</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="fj-gallery"><p><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/UiRxbK1OWwfjpDk.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/qBYhavL8yPrGUXW.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/jKd1OkyMWXib24z.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/dW9LaGeFXi5VYqO.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/qOyP3badI6ZclTC.png" alt=""><br><img src="https://s2.loli.net/2023/05/29/YCIfHjvxoTUXrkL.png" alt=""></p>          </div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐页</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://music.163.com/radio/?id=987252984&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/K6XElkTrBbxC4Ih.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的AI歌姬</span><span class="desc"> 基于vits制作的AI歌姬【我自己的声音】</span></div></a><a class="site-card" href="https://music.163.com/playlist?id=134336917&userid=109815583"><div class="img"><img src="https://s2.loli.net/2023/04/20/o7ZS5Lr3WA1FPY8.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/20/jSvg53mopXdBCHe.png"/><span class="title">我的红心歌单</span><span class="desc"> 网易云-我的红心歌单【可能有点杂】</span></div></a></div>]]></content>
       
     </entry>
     
@@ -962,6 +951,17 @@
       <url>/js/bp/swiperbdage_init.min.js</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Niord的AI绘图画廊</title>
+      <link href="/gallery/AIsd/index.html"/>
+      <url>/gallery/AIsd/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="fj-gallery"><p><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/UiRxbK1OWwfjpDk.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/qBYhavL8yPrGUXW.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/jKd1OkyMWXib24z.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/dW9LaGeFXi5VYqO.png" alt=""><br><img src="https://s2.loli.net/2023/04/20/qOyP3badI6ZclTC.png" alt=""><br><img src="https://s2.loli.net/2023/05/29/YCIfHjvxoTUXrkL.png" alt=""></p>          </div>]]></content>
       
     </entry>
     
