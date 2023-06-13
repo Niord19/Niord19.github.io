@@ -8,7 +8,7 @@
       <link href="/2023/06/12/%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/"/>
       <url>/2023/06/12/%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A021(Article021) --><h1 id="1-与或非门"><a href="#1-与或非门" class="headerlink" title="1. 与或非门"></a>1. 与或非门</h1><h1 id="2-PN结与二极管"><a href="#2-PN结与二极管" class="headerlink" title="2. PN结与二极管"></a>2. PN结与二极管</h1><p>硅(Si)是4电子结构，故而纯硅是稳定8电子结构，不导电。<br>如果对硅进行掺杂，掺入少量磷原子(P)（5电子结构），就会有自由电子（负电），对这块硅我们叫他<code>N型半导体</code>(Negative)。<br>如果对硅进行掺杂，掺入少量硼原子(B)（3电子结构），就会有空穴 (空电子位，吸引外侧电子)（正电），对这块硅我们叫他<code>P型半导体</code>(Positive)。<br><img src="https://s2.loli.net/2023/06/12/vpYiBoPfhUjckXE.png" alt="A021-01.png"></p><p>因此，只要将N型半导体和P型半导体组合在一起，就构成了<code>二极管</code>。<br>我们给二极管通电（接上电源），就有了电场。<br>如果P端接电源正极，自由电子向空穴方向移动，从而形成电子移动，构成电流。<br>如果N端接电源正极，自由电子无法移动，从而不构成电流。<br>这就是二极管的<code>单向导通性</code><br><img src="https://s2.loli.net/2023/06/12/gyALSOf2CnMl7KN.png" alt="A021-02.png"></p><h1 id="3-BJT三极管"><a href="#3-BJT三极管" class="headerlink" title="3. BJT三极管"></a>3. BJT三极管</h1><p>承接上文，如果我们搭出一个N-P-N结构的PN结，再来一点点细节，就可以作为<code>三极管BJT</code>。<br><img src="https://s2.loli.net/2023/06/12/gbs7COTwhdznM9A.png" alt="A021-03.png"></p><p>BJT, 双极性晶体管，俗称三极管。它有3个极，分别是<code>集电极C</code>、<code>基电极B</code>、<code>发射极E</code>。<br>它的特性是：<code>基极不通电，则电流不导通；基极通电，则电流导通</code>。</p><p>在具体的工艺实现上，NPN三块半导体的掺杂浓度、厚度都不相同。其中：<br>发射区掺杂浓度最高（自由电子多）<br>基区掺杂浓度最低、且薄（空穴少、且电子通过容易）<br><img src="https://s2.loli.net/2023/06/12/rlwLa5emX8BD1TG.png" alt="A021-04.png"></p><p>当基极不接电源，则双向都是二极管截止，无法构成电流。<br>当基极接入电源，则引发电子移动，由于基区空穴少且薄，会有大量电子从发射区涌向集电区，形成集电极电流（三极管的输出电流）。<br>这就是三极管<code>用小电流控制大电流</code>的基本原理。</p><h1 id="4-IGBT"><a href="#4-IGBT" class="headerlink" title="4. IGBT"></a>4. IGBT</h1><pre><code>IGBT, 由BJT和MOS组成</code></pre><h1 id="5-MOSFET"><a href="#5-MOSFET" class="headerlink" title="5. MOSFET"></a>5. MOSFET</h1><h1 id="6-示波器"><a href="#6-示波器" class="headerlink" title="6. 示波器"></a>6. 示波器</h1>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A021(Article021) --><h1 id="1-与或非门"><a href="#1-与或非门" class="headerlink" title="1. 与或非门"></a>1. 与或非门</h1><p>逻辑门电路是现代电路的逻辑基础。基本的逻辑门有 <code>与或非门</code>、<code>与非、或非门</code>、<code>同或、异或门</code> 这几种。其图形表征如下图所示：<br><img src="https://s2.loli.net/2023/06/13/xd1oE4LGQy8TUjm.png" alt="A021-00.png"><br>其中，与门全为1则输出1，一假则假；或门有一个1则输出1，一真则真；非门即输出相反信号；<br>与非门即与门+非门；或非门即或门+非门；同或即相同为1；异或为不同为1。<br>通常情况下，我们会采用真值表或者逻辑函数来表达其中的逻辑。</p><p>在实际实现上，这些门电路采用了高电压和电路特性以及二极管等电子器件来实现，具体电路组成如下图所示：<br><img src="https://s2.loli.net/2023/06/13/bDdYFz2M6n47aec.jpg" alt="A021-001.jpg"></p><p>其中以<code>与门</code>举例：<br>(i)输入端全为1高电平，则二极管截止，右侧高电压直接输出1高电平。<br>(ii)输入端有一个为0低电平，则二极管单向导通，右侧输出0.7V低电压，视为0低电平。<br>其他的门电路都可以以此为例进行分析。</p><p>在现代实际使用中，一般使用<code>集成芯片</code>来搭建门电路的组合使用，因为集成电路芯片内置了数个门，方便使用且稳定。<br>具体的一些门电路集成芯片已经在图中给出。</p><h1 id="2-PN结与二极管"><a href="#2-PN结与二极管" class="headerlink" title="2. PN结与二极管"></a>2. PN结与二极管</h1><p>硅(Si)是4电子结构，故而纯硅是稳定8电子结构，不导电。<br>如果对硅进行掺杂，掺入少量磷原子(P)（5电子结构），就会有自由电子（负电），对这块硅我们叫他<code>N型半导体</code>(Negative)。<br>如果对硅进行掺杂，掺入少量硼原子(B)（3电子结构），就会有空穴 (空电子位，吸引外侧电子)（正电），对这块硅我们叫他<code>P型半导体</code>(Positive)。<br><img src="https://s2.loli.net/2023/06/12/vpYiBoPfhUjckXE.png" alt="A021-01.png"></p><p>因此，只要将N型半导体和P型半导体组合在一起，就构成了<code>二极管</code>。<br>我们给二极管通电（接上电源），就有了电场。<br>如果P端接电源正极，自由电子向空穴方向移动，从而形成电子移动，构成电流。<br>如果N端接电源正极，自由电子无法移动，从而不构成电流。<br>这就是二极管的<code>单向导通性</code><br><img src="https://s2.loli.net/2023/06/12/gyALSOf2CnMl7KN.png" alt="A021-02.png"></p><h1 id="3-三极管-BJT"><a href="#3-三极管-BJT" class="headerlink" title="3. 三极管(BJT)"></a>3. 三极管(BJT)</h1><p>承接上文，如果我们搭出一个N-P-N结构的PN结，再来一点点细节，就可以作为<code>三极管BJT</code>。<br><img src="https://s2.loli.net/2023/06/12/gbs7COTwhdznM9A.png" alt="A021-03.png"></p><p>BJT, 双极性晶体管，俗称三极管。它有3个极，分别是<code>集电极C</code>、<code>基电极B</code>、<code>发射极E</code>。<br>它的特性是：<code>基极不通电，则电流不导通；基极通电，则电流导通</code>。</p><p>在具体的工艺实现上，NPN三块半导体的掺杂浓度、厚度都不相同。其中：<br>发射区掺杂浓度最高（自由电子多）<br>基区掺杂浓度最低、且薄（空穴少、且电子通过容易）<br><img src="https://s2.loli.net/2023/06/12/rlwLa5emX8BD1TG.png" alt="A021-04.png"></p><p>(i)当基极不接电源，则双向都是二极管截止，无法构成电流。<br>(ii)当基极接入电源，则引发电子移动，由于基区空穴少且薄，会有大量电子从发射区涌向集电区，形成集电极电流（三极管的输出电流）。<br>这就是三极管<code>用小电流控制大电流</code>的基本原理。</p><p>一般的三极管，它可以被分为4种状态：<code>截止状态</code>、<code>饱和状态</code>、<code>放大状态</code>、<code>击穿状态</code>。<br>具体的原理和数据如下图所示：<br><img src="https://s2.loli.net/2023/06/13/pYTBGR9bZgNVo8s.jpg" alt="A021-05.jpg"></p><h1 id="5-MOS管"><a href="#5-MOS管" class="headerlink" title="5. MOS管"></a>5. MOS管</h1><h1 id="5-IGBT"><a href="#5-IGBT" class="headerlink" title="5. IGBT"></a>5. IGBT</h1><pre><code>IGBT, 由BJT和MOS组成</code></pre><h1 id="6-MOSFET（MOS管？）"><a href="#6-MOSFET（MOS管？）" class="headerlink" title="6. MOSFET（MOS管？）"></a>6. MOSFET（MOS管？）</h1><h1 id="7-示波器"><a href="#7-示波器" class="headerlink" title="7. 示波器"></a>7. 示波器</h1><h1 id="8-小知识点"><a href="#8-小知识点" class="headerlink" title="8. 小知识点"></a>8. 小知识点</h1><p><code>晶体管</code>，是半导体器件的总称，其包括了二极管、三极管、场效应管（MOS管）和晶闸管等。</p><h2 id="8-1-交直流电转换"><a href="#8-1-交直流电转换" class="headerlink" title="8.1 交直流电转换"></a>8.1 交直流电转换</h2><p>交流电—&gt;直流电：<code>整流</code>+<code>滤波</code>（串联二极管：<code>半波整流</code>；采用4个二极管串联构成的<code>整流桥</code>：<code>全波整流（桥式）</code>；再加个电容：直流电（脉动））<br>直流电—&gt;交流电：<code>逆变器</code>（使用写入了c程序的芯片去控制<code>电子开关（晶体管，比如功率MOS管、IGBT）</code>，让电路不停地开关：方波交流电；增加开关次数并调整频率：伪正弦交流电；加个电容：正弦交流电）</p><h2 id="8-2-TTL和CMOS"><a href="#8-2-TTL和CMOS" class="headerlink" title="8.2 TTL和CMOS"></a>8.2 TTL和CMOS</h2><p>现在的芯片很多都是基于TTL和CMOS的，尤其CMOS非常多。<br>TTL内部采用了三极管；CMOS内部采用了N/P型MOS管。</p>]]></content>
       
       
       <categories>
@@ -812,22 +812,22 @@
     
     
     <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title></title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。其中评论系统需要爬高高，加载图像略慢是因为博主没有国内域名+GitHub薛定谔ping通+使用了免费图床的问题，博主没钱去购置域名绑定(擦泪)，所以主打一个能用就行（嘘，不许说出去哦）</p>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title></title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。其中评论系统需要爬高高，加载图像略慢是因为博主没有国内域名+GitHub薛定谔ping通+使用了免费图床的问题，博主没钱去购置域名绑定(擦泪)，所以主打一个能用就行（嘘，不许说出去哦）</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -846,10 +846,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
+      <link href="/css/runtime.css"/>
+      <url>/css/runtime.css</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
       
     </entry>
     
@@ -857,10 +857,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/runtime.css"/>
-      <url>/css/runtime.css</url>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>#workboard{font-size:13px;font-weight:700}]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 背景宇宙星光  */#universe{    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;  }]]></content>
       
     </entry>
     
@@ -889,11 +889,11 @@
     
     
     <entry>
-      <title>友链中心</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title></title>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
       
     </entry>
     
@@ -911,11 +911,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
+      <title>友链中心</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function dark() {window.requestAnimationFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;var n,e,i,h,t=.05,s=document.getElementById("universe"),o=!0,a="180,184,240",r="226,225,142",d="226,225,224",c=[];function f(){n=window.innerWidth,e=window.innerHeight,i=.216*n,s.setAttribute("width",n),s.setAttribute("height",e)}function u(){h.clearRect(0,0,n,e);for(var t=c.length,i=0;i<t;i++){var s=c[i];s.move(),s.fadeIn(),s.fadeOut(),s.draw()}}function y(){this.reset=function(){this.giant=m(3),this.comet=!this.giant&&!o&&m(10),this.x=l(0,n-10),this.y=l(0,e),this.r=l(1.1,2.6),this.dx=l(t,6*t)+(this.comet+1-1)*t*l(50,120)+2*t,this.dy=-l(t,6*t)-(this.comet+1-1)*t*l(50,120),this.fadingOut=null,this.fadingIn=!0,this.opacity=0,this.opacityTresh=l(.2,1-.4*(this.comet+1-1)),this.do=l(5e-4,.002)+.001*(this.comet+1-1)},this.fadeIn=function(){this.fadingIn&&(this.fadingIn=!(this.opacity>this.opacityTresh),this.opacity+=this.do)},this.fadeOut=function(){this.fadingOut&&(this.fadingOut=!(this.opacity<0),this.opacity-=this.do/2,(this.x>n||this.y<0)&&(this.fadingOut=!1,this.reset()))},this.draw=function(){if(h.beginPath(),this.giant)h.fillStyle="rgba("+a+","+this.opacity+")",h.arc(this.x,this.y,2,0,2*Math.PI,!1);else if(this.comet){h.fillStyle="rgba("+d+","+this.opacity+")",h.arc(this.x,this.y,1.5,0,2*Math.PI,!1);for(var t=0;t<30;t++)h.fillStyle="rgba("+d+","+(this.opacity-this.opacity/20*t)+")",h.rect(this.x-this.dx/4*t,this.y-this.dy/4*t-2,2,2),h.fill()}else h.fillStyle="rgba("+r+","+this.opacity+")",h.rect(this.x,this.y,this.r,this.r);h.closePath(),h.fill()},this.move=function(){this.x+=this.dx,this.y+=this.dy,!1===this.fadingOut&&this.reset(),(this.x>n-n/4||this.y<0)&&(this.fadingOut=!0)},setTimeout(function(){o=!1},50)}function m(t){return Math.floor(1e3*Math.random())+1<10*t}function l(t,i){return Math.random()*(i-t)+t}f(),window.addEventListener("resize",f,!1),function(){h=s.getContext("2d");for(var t=0;t<i;t++)c[t]=new y,c[t].reset();u()}(),function t(){document.getElementsByTagName('html')[0].getAttribute('data-theme')=='dark'&&u(),window.requestAnimationFrame(t)}()};dark()]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
