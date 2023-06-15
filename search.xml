@@ -8,7 +8,7 @@
       <link href="/2023/06/12/%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/"/>
       <url>/2023/06/12/%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A021(Article021) --><h1 id="1-与或非门"><a href="#1-与或非门" class="headerlink" title="1. 与或非门"></a>1. 与或非门</h1><p>逻辑门电路是现代电路的逻辑基础。基本的逻辑门有 <code>与或非门</code>、<code>与非、或非门</code>、<code>同或、异或门</code> 这几种。其图形表征如下图所示：<br><img src="https://s2.loli.net/2023/06/13/xd1oE4LGQy8TUjm.png" alt="A021-00.png"><br>其中，与门全为1则输出1，一假则假；或门有一个1则输出1，一真则真；非门即输出相反信号；<br>与非门即与门+非门；或非门即或门+非门；同或即相同为1；异或为不同为1。<br>通常情况下，我们会采用真值表或者逻辑函数来表达其中的逻辑。</p><p>在实际实现上，这些门电路采用了高电压和电路特性以及二极管等电子器件来实现，具体电路组成如下图所示：<br><img src="https://s2.loli.net/2023/06/13/bDdYFz2M6n47aec.jpg" alt="A021-001.jpg"></p><p>其中以<code>与门</code>举例：<br>(i)输入端全为1高电平，则二极管截止，右侧高电压直接输出1高电平。<br>(ii)输入端有一个为0低电平，则二极管单向导通，右侧输出0.7V低电压，视为0低电平。<br>其他的门电路都可以以此为例进行分析。</p><p>在现代实际使用中，一般使用<code>集成芯片</code>来搭建门电路的组合使用，因为集成电路芯片内置了数个门，方便使用且稳定。<br>具体的一些门电路集成芯片已经在图中给出。</p><h1 id="2-PN结与二极管"><a href="#2-PN结与二极管" class="headerlink" title="2. PN结与二极管"></a>2. PN结与二极管</h1><p>硅(Si)是4电子结构，故而纯硅是稳定8电子结构，不导电。<br>如果对硅进行掺杂，掺入少量磷原子(P)（5电子结构），就会有自由电子（负电），对这块硅我们叫他<code>N型半导体</code>(Negative)。<br>如果对硅进行掺杂，掺入少量硼原子(B)（3电子结构），就会有空穴 (空电子位，吸引外侧电子)（正电），对这块硅我们叫他<code>P型半导体</code>(Positive)。<br><img src="https://s2.loli.net/2023/06/12/vpYiBoPfhUjckXE.png" alt="A021-01.png"></p><p>因此，只要将N型半导体和P型半导体组合在一起，就构成了<code>二极管</code>。<br>我们给二极管通电（接上电源），就有了电场。<br>如果P端接电源正极，自由电子向空穴方向移动，从而形成电子移动，构成电流。<br>如果N端接电源正极，自由电子无法移动，从而不构成电流。<br>这就是二极管的<code>单向导通性</code><br><img src="https://s2.loli.net/2023/06/12/gyALSOf2CnMl7KN.png" alt="A021-02.png"></p><h1 id="3-三极管-BJT"><a href="#3-三极管-BJT" class="headerlink" title="3. 三极管 (BJT)"></a>3. 三极管 (BJT)</h1><p>承接上文，如果我们搭出一个N-P-N结构的PN结，再来一点点细节，就可以作为三极管BJT。<br><img src="https://s2.loli.net/2023/06/13/2IcEAzP3H8ljUYx.png" alt="A021-03.png"></p><p><code>BJT</code>, 全称<code>双极型三极管</code>，俗称<code>三极管</code>。它有3个极，分别是<code>集电极C</code>、<code>基电极B</code>、<code>发射极E</code>。<br>它属于<code>双极型晶体管</code>，人们也常常这么叫它。<br>它的工作特性是：<code>基极不通电，则电流不导通；基极通电，则电流导通</code>。</p><p>在具体的工艺实现上，NPN三块半导体的掺杂浓度、厚度都不相同。其中：<br>发射区掺杂浓度最高（自由电子多）<br>基区掺杂浓度最低、且薄（空穴少、且电子通过容易）</p><p>(i)当基极不接电源，则双向都是二极管截止，无法构成电流。<br>(ii)当基极接入电源，则引发电子移动，由于基区空穴少且薄，会有大量电子从发射区涌向集电区，形成集电极电流（三极管的输出电流）。<br>这就是三极管<code>用小电流控制大电流</code>的基本原理。</p><p>一般的三极管，它可以被分为4种状态：<code>截止状态</code>、<code>饱和状态</code>、<code>放大状态</code>、<code>击穿状态</code>。<br>具体的原理和数据如下图所示：<br><img src="https://s2.loli.net/2023/06/13/pYTBGR9bZgNVo8s.jpg" alt="A021-05.jpg"></p><h1 id="4-MOSFET-MOS管"><a href="#4-MOSFET-MOS管" class="headerlink" title="4. MOSFET (MOS管)"></a>4. MOSFET (MOS管)</h1><p><code>MOS</code>，全称<code>MOSFET</code>，俗称<code>场效应晶体管</code>。其本质也是由PN结的应用衍生而来。它也拥有3个电极，分别是：<code>栅极G</code>、<code>漏极D</code>、<code>源极S</code>。<br>由于其导通时只有一种极性的载流子(多子)参与导电，因此属于<code>单极型晶体管</code>。<br>它的工作特性是：<code>栅极没有电压时，则电流不导通；栅极有电压，则电流导通</code>。<br><img src="https://s2.loli.net/2023/06/13/rXY2PGxiSl6oqfd.jpg" alt="A021-06.jpg"><br>MOS管一般不会用来作为放大信号的器件，但是和BJT一样，可以作为<code>电子开关</code>。</p><h1 id="5-IGBT"><a href="#5-IGBT" class="headerlink" title="5. IGBT"></a>5. IGBT</h1><p><code>IGBT</code>, 全称为<code>绝缘栅极晶体管</code>。它<code>由BJT和MOS复合组成</code>，本质也是一个电子开关。<br>IGBT相较于BJT和MOS，他的优势是<code>可耐受的电压很高</code>，因此<code>功率高</code>，且<code>开关频率也很棒</code>。（参考数据：6500V、3600A、上万次开关/秒）<br>它有3个极，分别是<code>栅极G</code>、<code>集电极C</code>、<code>发射极E</code>。<br>它的工作特性是：<code>给栅极高电平则导通；给栅极低电平则截止</code>。<br><img src="https://s2.loli.net/2023/06/13/59mQgC7DJkPueIz.png" alt="A021-07.png"></p><p>IGBT的结构结合了MOS的低驱动电流（MOS是用了绝缘层，IGBT是用了电容）和BJT低导通电阻（三极管导通时低电阻，IGBT利用了这一点）的优势。<br>IGBT的主要应用有：高压直流电转为交流电（逆变器组件之一）、变频（PWM?）<br>涉及工业领域有：新能源汽车、太阳能、工业自动化等。<br>目前，IGBT基本作为模块组件出现，模块中还有散热器、续流二极管等。有些模块集成了一坨IGBT，还提供了相应的保护电路。</p><h1 id="6-示波器"><a href="#6-示波器" class="headerlink" title="6. 示波器"></a>6. 示波器</h1><h1 id="8-小知识点"><a href="#8-小知识点" class="headerlink" title="8. 小知识点"></a>8. 小知识点</h1><p><code>晶体管</code>，是半导体器件的总称，其包括了二极管、三极管、场效应管（MOS管）和晶闸管等。</p><h2 id="8-1-交直流电转换"><a href="#8-1-交直流电转换" class="headerlink" title="8.1 交直流电转换"></a>8.1 交直流电转换</h2><p>交流电—&gt;直流电：<code>整流</code>+<code>滤波</code>（串联二极管：<code>半波整流</code>；采用4个二极管串联构成的<code>整流桥</code>：<code>全波整流（桥式）</code>；再加个电容：直流电（脉动））<br>直流电—&gt;交流电：<code>逆变器</code>（使用写入了c程序的芯片去控制<code>电子开关（晶体管，比如功率MOS管、IGBT）</code>，让电路不停地开关：方波交流电；增加开关次数并调整频率：伪正弦交流电；加个电容：正弦交流电）</p><h2 id="8-2-TTL和CMOS"><a href="#8-2-TTL和CMOS" class="headerlink" title="8.2 TTL和CMOS"></a>8.2 TTL和CMOS</h2><p>现在的芯片很多都是基于TTL和CMOS的，尤其CMOS非常多。<br>TTL内部采用了三极管；CMOS内部采用了N/P型MOS管。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- 图床个人编号规则：A021(Article021) --><h1 id="1-与或非门"><a href="#1-与或非门" class="headerlink" title="1. 与或非门"></a>1. 与或非门</h1><p>逻辑门电路是现代电路的逻辑基础。基本的逻辑门有 <code>与或非门</code>、<code>与非、或非门</code>、<code>同或、异或门</code> 这几种。其图形表征如下图所示：<br><img src="https://s2.loli.net/2023/06/13/xd1oE4LGQy8TUjm.png" alt="A021-00.png"><br>其中，与门全为1则输出1，一假则假；或门有一个1则输出1，一真则真；非门即输出相反信号；<br>与非门即与门+非门；或非门即或门+非门；同或即相同为1；异或为不同为1。<br>通常情况下，我们会采用真值表或者逻辑函数来表达其中的逻辑。</p><p>在实际实现上，这些门电路采用了高电压和电路特性以及二极管等电子器件来实现，具体电路组成如下图所示：<br><img src="https://s2.loli.net/2023/06/13/bDdYFz2M6n47aec.jpg" alt="A021-001.jpg"></p><p>其中以<code>与门</code>举例：<br>(i)输入端全为1高电平，则二极管截止，右侧高电压直接输出1高电平。<br>(ii)输入端有一个为0低电平，则二极管单向导通，右侧输出0.7V低电压，视为0低电平。<br>其他的门电路都可以以此为例进行分析。</p><p>在现代实际使用中，一般使用<code>集成芯片</code>来搭建门电路的组合使用，因为集成电路芯片内置了数个门，方便使用且稳定。<br>具体的一些门电路集成芯片已经在图中给出。</p><h1 id="2-PN结与二极管"><a href="#2-PN结与二极管" class="headerlink" title="2. PN结与二极管"></a>2. PN结与二极管</h1><p>硅(Si)是4电子结构，故而纯硅是稳定8电子结构，不导电。<br>如果对硅进行掺杂，掺入少量磷原子(P)（5电子结构），就会有自由电子（负电），对这块硅我们叫他<code>N型半导体</code>(Negative)。<br>如果对硅进行掺杂，掺入少量硼原子(B)（3电子结构），就会有空穴 (空电子位，吸引外侧电子)（正电），对这块硅我们叫他<code>P型半导体</code>(Positive)。<br><img src="https://s2.loli.net/2023/06/12/vpYiBoPfhUjckXE.png" alt="A021-01.png"></p><p>因此，只要将N型半导体和P型半导体组合在一起，就构成了<code>二极管</code>。<br>我们给二极管通电（接上电源），就有了电场。<br>如果P端接电源正极，自由电子向空穴方向移动，从而形成电子移动，构成电流。<br>如果N端接电源正极，自由电子无法移动，从而不构成电流。<br>这就是二极管的<code>单向导通性</code><br><img src="https://s2.loli.net/2023/06/12/gyALSOf2CnMl7KN.png" alt="A021-02.png"></p><h1 id="3-三极管-BJT"><a href="#3-三极管-BJT" class="headerlink" title="3. 三极管 (BJT)"></a>3. 三极管 (BJT)</h1><p>承接上文，如果我们搭出一个N-P-N结构的PN结，再来一点点细节，就可以作为三极管BJT。<br><img src="https://s2.loli.net/2023/06/13/2IcEAzP3H8ljUYx.png" alt="A021-03.png"></p><p><code>BJT</code>, 全称<code>双极型三极管</code>，俗称<code>三极管</code>。它有3个极，分别是<code>集电极C</code>、<code>基电极B</code>、<code>发射极E</code>。<br>它属于<code>双极型晶体管</code>，人们也常常这么叫它。<br>它的工作特性是：<code>基极不通电，则电流不导通；基极通电，则电流导通</code>。</p><p>在具体的工艺实现上，NPN三块半导体的掺杂浓度、厚度都不相同。其中：<br>发射区掺杂浓度最高（自由电子多）<br>基区掺杂浓度最低、且薄（空穴少、且电子通过容易）</p><p>(i)当基极不接电源，则双向都是二极管截止，无法构成电流。<br>(ii)当基极接入电源，则引发电子移动，由于基区空穴少且薄，会有大量电子从发射区涌向集电区，形成集电极电流（三极管的输出电流）。<br>这就是三极管<code>用小电流控制大电流</code>的基本原理。</p><p>一般的三极管，它可以被分为4种状态：<code>截止状态</code>、<code>饱和状态</code>、<code>放大状态</code>、<code>击穿状态</code>。<br>具体的原理和数据如下图所示：<br><img src="https://s2.loli.net/2023/06/13/pYTBGR9bZgNVo8s.jpg" alt="A021-05.jpg"></p><h1 id="4-MOSFET-MOS管"><a href="#4-MOSFET-MOS管" class="headerlink" title="4. MOSFET (MOS管)"></a>4. MOSFET (MOS管)</h1><p><code>MOS</code>，全称<code>MOSFET</code>，俗称<code>场效应晶体管</code>。其本质也是由PN结的应用衍生而来。它也拥有3个电极，分别是：<code>栅极G</code>、<code>漏极D</code>、<code>源极S</code>。<br>由于其导通时只有一种极性的载流子(多子)参与导电，因此属于<code>单极型晶体管</code>。<br>它的工作特性是：<code>栅极没有电压时，则电流不导通；栅极有电压，则电流导通</code>。<br><img src="https://s2.loli.net/2023/06/13/rXY2PGxiSl6oqfd.jpg" alt="A021-06.jpg"><br>MOS管一般不会用来作为放大信号的器件，但是和BJT一样，可以作为<code>电子开关</code>。</p><h1 id="5-IGBT"><a href="#5-IGBT" class="headerlink" title="5. IGBT"></a>5. IGBT</h1><p><code>IGBT</code>, 全称为<code>绝缘栅极晶体管</code>。它<code>由BJT和MOS复合组成</code>，本质也是一个电子开关。<br>IGBT相较于BJT和MOS，他的优势是<code>可耐受的电压很高</code>，因此<code>功率高</code>，且<code>开关频率也很棒</code>。（参考数据：6500V、3600A、上万次开关/秒）<br>它有3个极，分别是<code>栅极G</code>、<code>集电极C</code>、<code>发射极E</code>。<br>它的工作特性是：<code>给栅极高电平则导通；给栅极低电平则截止</code>。<br><img src="https://s2.loli.net/2023/06/13/59mQgC7DJkPueIz.png" alt="A021-07.png"></p><p>IGBT的结构结合了MOS的低驱动电流（MOS是用了绝缘层，IGBT是用了电容）和BJT低导通电阻（三极管导通时低电阻，IGBT利用了这一点）的优势。<br>IGBT的主要应用有：高压直流电转为交流电（逆变器组件之一）、变频（PWM?）<br>涉及工业领域有：新能源汽车、太阳能、工业自动化等。<br>目前，IGBT基本作为模块组件出现，模块中还有散热器、续流二极管等。有些模块集成了一坨IGBT，还提供了相应的保护电路。</p><h1 id="6-示波器"><a href="#6-示波器" class="headerlink" title="6. 示波器"></a>6. 示波器</h1><p><img src="https://s2.loli.net/2023/06/15/A9so8teamfGxqBC.png" alt="A021-08-示波器.png"></p><h1 id="7-更多小知识点"><a href="#7-更多小知识点" class="headerlink" title="7. 更多小知识点"></a>7. 更多小知识点</h1><h2 id="7-1-什么是晶体管？"><a href="#7-1-什么是晶体管？" class="headerlink" title="7.1 什么是晶体管？"></a>7.1 什么是晶体管？</h2><p><code>晶体管</code>，是半导体器件的总称，其包括了二极管、三极管、场效应管（MOS管）和晶闸管等。</p><h2 id="7-2-交直流电转换如何实现？"><a href="#7-2-交直流电转换如何实现？" class="headerlink" title="7.2 交直流电转换如何实现？"></a>7.2 交直流电转换如何实现？</h2><p>交流电—&gt;直流电：<code>整流</code>+<code>滤波</code>（串联二极管：<code>半波整流</code>；采用4个二极管串联构成的<code>整流桥</code>：<code>全波整流（桥式）</code>；再加个电容：直流电（脉动））<br>直流电—&gt;交流电：<code>逆变器</code>（使用写入了c程序的芯片去控制<code>电子开关（晶体管，比如功率MOS管、IGBT）</code>，让电路不停地开关：方波交流电；增加开关次数并调整频率：伪正弦交流电；加个电容：正弦交流电）</p><h2 id="7-3-TTL和CMOS有什么区别？"><a href="#7-3-TTL和CMOS有什么区别？" class="headerlink" title="7.3 TTL和CMOS有什么区别？"></a>7.3 TTL和CMOS有什么区别？</h2><p>现在的芯片很多都是基于TTL和CMOS的，尤其CMOS非常多。<br>TTL内部采用了三极管；CMOS内部采用了N/P型MOS管。</p>]]></content>
       
       
       <categories>
@@ -218,13 +218,13 @@
       
         <tags>
             
-            <tag> Stable Diffusion </tag>
-            
-            <tag> WebUI </tag>
-            
             <tag> AI </tag>
             
             <tag> 笔记 </tag>
+            
+            <tag> Stable Diffusion </tag>
+            
+            <tag> WebUI </tag>
             
             <tag> Tag </tag>
             
@@ -253,13 +253,13 @@
       
         <tags>
             
-            <tag> Stable Diffusion </tag>
-            
-            <tag> WebUI </tag>
-            
             <tag> AI </tag>
             
             <tag> 笔记 </tag>
+            
+            <tag> Stable Diffusion </tag>
+            
+            <tag> WebUI </tag>
             
             <tag> Tag </tag>
             
@@ -315,13 +315,13 @@
       
         <tags>
             
-            <tag> Stable Diffusion </tag>
-            
-            <tag> WebUI </tag>
-            
             <tag> AI </tag>
             
             <tag> 笔记 </tag>
+            
+            <tag> Stable Diffusion </tag>
+            
+            <tag> WebUI </tag>
             
             <tag> ControlNet </tag>
             
@@ -350,13 +350,13 @@
       
         <tags>
             
-            <tag> AI </tag>
-            
-            <tag> 笔记 </tag>
-            
             <tag> UVR </tag>
             
+            <tag> AI </tag>
+            
             <tag> 分离音轨 </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> 人声提取 </tag>
             
@@ -812,28 +812,6 @@
     
     
     <entry>
-      <title>分类页</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。其中评论系统需要爬高高，加载图像略慢是因为博主没有国内域名+GitHub薛定谔ping通+使用了免费图床的问题，博主没钱去购置域名绑定(擦泪)，所以主打一个能用就行（嘘，不许说出去哦）</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
@@ -868,6 +846,61 @@
     
     <entry>
       <title></title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="关于此站"><a href="#关于此站" class="headerlink" title="关于此站"></a>关于此站</h2><p>是Niord的私人博客。其中评论系统需要爬高高，加载图像略慢是因为博主没有国内域名+GitHub薛定谔ping通+使用了免费图床的问题，博主没钱去购置域名绑定(擦泪)，所以主打一个能用就行（嘘，不许说出去哦）</p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类页</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>网页版小游戏集合</title>
+      <link href="/game/index.html"/>
+      <url>/game/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)【已被禁】</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://beta.sparebeat.com/"><div class="img"><img src="https://s2.loli.net/2023/05/15/bQ8TAqUkYemOGLp.jpg"/></div><div class="info"><img src="https://s2.loli.net/2023/05/15/X8VOHMCWkRNEAwP.png"/><span class="title">Sparebeat (web)</span><span class="desc">一款斜轨下落4K模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>绘画页</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/js/universe.js"/>
       <url>/js/universe.js</url>
       
@@ -889,33 +922,11 @@
     
     
     <entry>
-      <title>网页版小游戏集合</title>
-      <link href="/game/index.html"/>
-      <url>/game/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="http://osugame.online/index.html"><div class="img"><img src="https://s2.loli.net/2022/12/18/SmZVcX2xCr1l64q.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/RxsamuCHv8MT4IQ.png"/><span class="title">osu!std (web)</span><span class="desc">osu!经典模式 - 在线网页版</span></div></a><a class="site-card" href="https://www.beatstage.com/"><div class="img"><img src="https://s2.loli.net/2022/12/18/DEfbMzQjsqx5yRN.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/wu9t6dnbUJl28H7.png"/><span class="title">beatstage (web)</span><span class="desc">经典下落式5K传统音游 - 在线网页版</span></div></a><a class="site-card" href="https://rodrig0v.github.io/webmania/#/"><div class="img"><img src="https://s2.loli.net/2022/12/18/zqFxMRovpuEeitG.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/HEnu2AiFUjvJQI7.png"/><span class="title">Web!Mania (web)</span><span class="desc">一个略简陋的Mania - 在线网页版</span></div></a><a class="site-card" href="https://taiko.bui.pm/"><div class="img"><img src="https://s2.loli.net/2022/12/18/BmotwOLTNkCc4Ay.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/8wgpV3lQr9517ic.png"/><span class="title">Taiko (web)【已被禁】</span><span class="desc">太鼓达人 - 在线网页版</span></div></a><a class="site-card" href="https://bemuse.ninja/"><div class="img"><img src="https://s2.loli.net/2022/12/18/lBrybWjE1px7VP3.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/ZvhRcAzaU4gmKkN.png"/><span class="title">Bemuse (web)</span><span class="desc">一款优秀的BMS模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://beta.sparebeat.com/"><div class="img"><img src="https://s2.loli.net/2023/05/15/bQ8TAqUkYemOGLp.jpg"/></div><div class="info"><img src="https://s2.loli.net/2023/05/15/X8VOHMCWkRNEAwP.png"/><span class="title">Sparebeat (web)</span><span class="desc">一款斜轨下落4K模拟器 - 在线网页版</span></div></a><a class="site-card" href="https://phicommunity.com.cn"><div class="img"><img src="https://s2.loli.net/2022/12/18/y5jzsNZ4exOFEhU.jpg"/></div><div class="info"><img src="https://s2.loli.net/2022/12/18/3QyM2B5xhAqCdOE.png"/><span class="title">PhiCommunity (web)</span><span class="desc">网页Phigros - 在线网页版</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>动漫页</title>
       <link href="/movies/index.html"/>
       <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="site-card-group"><a class="site-card" href="https://docs.qq.com/sheet/DV1RJYVZVRUtmWnJp?tab=BB08J2"><div class="img"><img src="https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png"/></div><div class="info"><img src="https://s2.loli.net/2023/04/21/nDhw1Ui7mrxWMzV.png"/><span class="title">我的阅番整理</span><span class="desc"> 基于在线文档做的个人已阅番剧整理</span></div></a></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签页</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -933,11 +944,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <title>标签页</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/07/2022 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),r=new Date("11/07/2022 00:00:00"),n=(now-r)/1e3/60/60/24,o=Math.floor(n),i=(now-r)/1e3/60/60-24*o,s=Math.floor(i);1==String(s).length&&(s="0"+s);var c=(now-r)/1e3/60-1440*o-60*s,l=Math.floor(c);1==String(l).length&&(l="0"+l);var g=(now-r)/1e3-86400*o-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let d="";d=s<18&&s>=9?`<br> 本站居然运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`:` 一朵花坠落的速度 , 连时间都放慢了脚步。 <br> 本站居然已经运行了 ${o} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=d)}setInterval((()=>{createtime()}),1e3);]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
     </entry>
     
@@ -956,21 +967,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/bp/swiperbdage_init.min.js"/>
-      <url>/js/bp/swiperbdage_init.min.js</url>
+      <link href="/js/wowjs/wow.min.js"/>
+      <url>/js/wowjs/wow.min.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>绘画页</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://s2.loli.net/2023/04/20/mXHuZh9VLgqotJx.png' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">AI绘画</div>  <p>Niord基于Stable Diffusion WebUI绘制的一些作品和尝试</p>  <a href='/gallery/AIsd'></a>  </figcaption>  </figure>  </div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/*! WOW wow.js - v1.3.0 - 2016-10-04* https://wowjs.uk* Copyright (c) 2016 Thomas Grainger; Licensed MIT */!function(a,b){if("function"==typeof define&&define.amd)define(["module","exports"],b);else if("undefined"!=typeof exports)b(module,exports);else{var c={exports:{}};b(c,c.exports),a.WOW=c.exports}}(this,function(a,b){"use strict";function c(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function d(a,b){return b.indexOf(a)>=0}function e(a,b){for(var c in b)if(null==a[c]){var d=b[c];a[c]=d}return a}function f(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)}function g(a){var b=arguments.length<=1||void 0===arguments[1]?!1:arguments[1],c=arguments.length<=2||void 0===arguments[2]?!1:arguments[2],d=arguments.length<=3||void 0===arguments[3]?null:arguments[3],e=void 0;return null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e}function h(a,b){null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)&&a["on"+b]()}function i(a,b,c){null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c}function j(a,b,c){null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]}function k(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight}Object.defineProperty(b,"__esModule",{value:!0});var l,m,n=function(){function a(a,b){for(var c=0;c<b.length;c++){var d=b[c];d.enumerable=d.enumerable||!1,d.configurable=!0,"value"in d&&(d.writable=!0),Object.defineProperty(a,d.key,d)}}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}(),o=window.WeakMap||window.MozWeakMap||function(){function a(){c(this,a),this.keys=[],this.values=[]}return n(a,[{key:"get",value:function(a){for(var b=0;b<this.keys.length;b++){var c=this.keys[b];if(c===a)return this.values[b]}}},{key:"set",value:function(a,b){for(var c=0;c<this.keys.length;c++){var d=this.keys[c];if(d===a)return this.values[c]=b,this}return this.keys.push(a),this.values.push(b),this}}]),a}(),p=window.MutationObserver||window.WebkitMutationObserver||window.MozMutationObserver||(m=l=function(){function a(){c(this,a),"undefined"!=typeof console&&null!==console&&(console.warn("MutationObserver is not supported by your browser."),console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content."))}return n(a,[{key:"observe",value:function(){}}]),a}(),l.notSupported=!0,m),q=window.getComputedStyle||function(a){var b=/(\-([a-z]){1})/g;return{getPropertyValue:function(c){"float"===c&&(c="styleFloat"),b.test(c)&&c.replace(b,function(a,b){return b.toUpperCase()});var d=a.currentStyle;return(null!=d?d[c]:void 0)||null}}},r=function(){function a(){var b=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];c(this,a),this.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null,resetAnimation:!0},this.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),this.vendors=["moz","webkit"],this.start=this.start.bind(this),this.resetAnimation=this.resetAnimation.bind(this),this.scrollHandler=this.scrollHandler.bind(this),this.scrollCallback=this.scrollCallback.bind(this),this.scrolled=!0,this.config=e(b,this.defaults),null!=b.scrollContainer&&(this.config.scrollContainer=document.querySelector(b.scrollContainer)),this.animationNameCache=new o,this.wowEvent=g(this.config.boxClass)}return n(a,[{key:"init",value:function(){this.element=window.document.documentElement,d(document.readyState,["interactive","complete"])?this.start():i(document,"DOMContentLoaded",this.start),this.finished=[]}},{key:"start",value:function(){var a=this;if(this.stopped=!1,this.boxes=[].slice.call(this.element.querySelectorAll("."+this.config.boxClass)),this.all=this.boxes.slice(0),this.boxes.length)if(this.disabled())this.resetStyle();else for(var b=0;b<this.boxes.length;b++){var c=this.boxes[b];this.applyStyle(c,!0)}if(this.disabled()||(i(this.config.scrollContainer||window,"scroll",this.scrollHandler),i(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live){var d=new p(function(b){for(var c=0;c<b.length;c++)for(var d=b[c],e=0;e<d.addedNodes.length;e++){var f=d.addedNodes[e];a.doSync(f)}});d.observe(document.body,{childList:!0,subtree:!0})}}},{key:"stop",value:function(){this.stopped=!0,j(this.config.scrollContainer||window,"scroll",this.scrollHandler),j(window,"resize",this.scrollHandler),null!=this.interval&&clearInterval(this.interval)}},{key:"sync",value:function(){p.notSupported&&this.doSync(this.element)}},{key:"doSync",value:function(a){if("undefined"!=typeof a&&null!==a||(a=this.element),1===a.nodeType){a=a.parentNode||a;for(var b=a.querySelectorAll("."+this.config.boxClass),c=0;c<b.length;c++){var e=b[c];d(e,this.all)||(this.boxes.push(e),this.all.push(e),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(e,!0),this.scrolled=!0)}}}},{key:"show",value:function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),h(a,this.wowEvent),this.config.resetAnimation&&(i(a,"animationend",this.resetAnimation),i(a,"oanimationend",this.resetAnimation),i(a,"webkitAnimationEnd",this.resetAnimation),i(a,"MSAnimationEnd",this.resetAnimation)),a}},{key:"applyStyle",value:function(a,b){var c=this,d=a.getAttribute("data-wow-duration"),e=a.getAttribute("data-wow-delay"),f=a.getAttribute("data-wow-iteration");return this.animate(function(){return c.customStyle(a,b,d,e,f)})}},{key:"resetStyle",value:function(){for(var a=0;a<this.boxes.length;a++){var b=this.boxes[a];b.style.visibility="visible"}}},{key:"resetAnimation",value:function(a){if(a.type.toLowerCase().indexOf("animationend")>=0){var b=a.target||a.srcElement;b.className=b.className.replace(this.config.animateClass,"").trim()}}},{key:"customStyle",value:function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a}},{key:"vendorSet",value:function(a,b){for(var c in b)if(b.hasOwnProperty(c)){var d=b[c];a[""+c]=d;for(var e=0;e<this.vendors.length;e++){var f=this.vendors[e];a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=d}}}},{key:"vendorCSS",value:function(a,b){for(var c=q(a),d=c.getPropertyCSSValue(b),e=0;e<this.vendors.length;e++){var f=this.vendors[e];d=d||c.getPropertyCSSValue("-"+f+"-"+b)}return d}},{key:"animationName",value:function(a){var b=void 0;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=q(a).getPropertyValue("animation-name")}return"none"===b?"":b}},{key:"cacheAnimationName",value:function(a){return this.animationNameCache.set(a,this.animationName(a))}},{key:"cachedAnimationName",value:function(a){return this.animationNameCache.get(a)}},{key:"scrollHandler",value:function(){this.scrolled=!0}},{key:"scrollCallback",value:function(){if(this.scrolled){this.scrolled=!1;for(var a=[],b=0;b<this.boxes.length;b++){var c=this.boxes[b];if(c){if(this.isVisible(c)){this.show(c);continue}a.push(c)}}this.boxes=a,this.boxes.length||this.config.live||this.stop()}}},{key:"offsetTop",value:function(a){for(;void 0===a.offsetTop;)a=a.parentNode;for(var b=a.offsetTop;a.offsetParent;)a=a.offsetParent,b+=a.offsetTop;return b}},{key:"isVisible",value:function(a){var b=a.getAttribute("data-wow-offset")||this.config.offset,c=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,d=c+Math.min(this.element.clientHeight,k())-b,e=this.offsetTop(a),f=e+a.clientHeight;return d>=e&&f>=c}},{key:"disabled",value:function(){return!this.config.mobile&&f(navigator.userAgent)}}]),a}();b["default"]=r,a.exports=b["default"]});]]></content>
       
     </entry>
     
@@ -978,10 +978,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/wowjs/wow.min.js"/>
-      <url>/js/wowjs/wow.min.js</url>
+      <link href="/js/bp/swiperbdage_init.min.js"/>
+      <url>/js/bp/swiperbdage_init.min.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/*! WOW wow.js - v1.3.0 - 2016-10-04* https://wowjs.uk* Copyright (c) 2016 Thomas Grainger; Licensed MIT */!function(a,b){if("function"==typeof define&&define.amd)define(["module","exports"],b);else if("undefined"!=typeof exports)b(module,exports);else{var c={exports:{}};b(c,c.exports),a.WOW=c.exports}}(this,function(a,b){"use strict";function c(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function d(a,b){return b.indexOf(a)>=0}function e(a,b){for(var c in b)if(null==a[c]){var d=b[c];a[c]=d}return a}function f(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)}function g(a){var b=arguments.length<=1||void 0===arguments[1]?!1:arguments[1],c=arguments.length<=2||void 0===arguments[2]?!1:arguments[2],d=arguments.length<=3||void 0===arguments[3]?null:arguments[3],e=void 0;return null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e}function h(a,b){null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)&&a["on"+b]()}function i(a,b,c){null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c}function j(a,b,c){null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]}function k(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight}Object.defineProperty(b,"__esModule",{value:!0});var l,m,n=function(){function a(a,b){for(var c=0;c<b.length;c++){var d=b[c];d.enumerable=d.enumerable||!1,d.configurable=!0,"value"in d&&(d.writable=!0),Object.defineProperty(a,d.key,d)}}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}(),o=window.WeakMap||window.MozWeakMap||function(){function a(){c(this,a),this.keys=[],this.values=[]}return n(a,[{key:"get",value:function(a){for(var b=0;b<this.keys.length;b++){var c=this.keys[b];if(c===a)return this.values[b]}}},{key:"set",value:function(a,b){for(var c=0;c<this.keys.length;c++){var d=this.keys[c];if(d===a)return this.values[c]=b,this}return this.keys.push(a),this.values.push(b),this}}]),a}(),p=window.MutationObserver||window.WebkitMutationObserver||window.MozMutationObserver||(m=l=function(){function a(){c(this,a),"undefined"!=typeof console&&null!==console&&(console.warn("MutationObserver is not supported by your browser."),console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content."))}return n(a,[{key:"observe",value:function(){}}]),a}(),l.notSupported=!0,m),q=window.getComputedStyle||function(a){var b=/(\-([a-z]){1})/g;return{getPropertyValue:function(c){"float"===c&&(c="styleFloat"),b.test(c)&&c.replace(b,function(a,b){return b.toUpperCase()});var d=a.currentStyle;return(null!=d?d[c]:void 0)||null}}},r=function(){function a(){var b=arguments.length<=0||void 0===arguments[0]?{}:arguments[0];c(this,a),this.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null,resetAnimation:!0},this.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),this.vendors=["moz","webkit"],this.start=this.start.bind(this),this.resetAnimation=this.resetAnimation.bind(this),this.scrollHandler=this.scrollHandler.bind(this),this.scrollCallback=this.scrollCallback.bind(this),this.scrolled=!0,this.config=e(b,this.defaults),null!=b.scrollContainer&&(this.config.scrollContainer=document.querySelector(b.scrollContainer)),this.animationNameCache=new o,this.wowEvent=g(this.config.boxClass)}return n(a,[{key:"init",value:function(){this.element=window.document.documentElement,d(document.readyState,["interactive","complete"])?this.start():i(document,"DOMContentLoaded",this.start),this.finished=[]}},{key:"start",value:function(){var a=this;if(this.stopped=!1,this.boxes=[].slice.call(this.element.querySelectorAll("."+this.config.boxClass)),this.all=this.boxes.slice(0),this.boxes.length)if(this.disabled())this.resetStyle();else for(var b=0;b<this.boxes.length;b++){var c=this.boxes[b];this.applyStyle(c,!0)}if(this.disabled()||(i(this.config.scrollContainer||window,"scroll",this.scrollHandler),i(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live){var d=new p(function(b){for(var c=0;c<b.length;c++)for(var d=b[c],e=0;e<d.addedNodes.length;e++){var f=d.addedNodes[e];a.doSync(f)}});d.observe(document.body,{childList:!0,subtree:!0})}}},{key:"stop",value:function(){this.stopped=!0,j(this.config.scrollContainer||window,"scroll",this.scrollHandler),j(window,"resize",this.scrollHandler),null!=this.interval&&clearInterval(this.interval)}},{key:"sync",value:function(){p.notSupported&&this.doSync(this.element)}},{key:"doSync",value:function(a){if("undefined"!=typeof a&&null!==a||(a=this.element),1===a.nodeType){a=a.parentNode||a;for(var b=a.querySelectorAll("."+this.config.boxClass),c=0;c<b.length;c++){var e=b[c];d(e,this.all)||(this.boxes.push(e),this.all.push(e),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(e,!0),this.scrolled=!0)}}}},{key:"show",value:function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),h(a,this.wowEvent),this.config.resetAnimation&&(i(a,"animationend",this.resetAnimation),i(a,"oanimationend",this.resetAnimation),i(a,"webkitAnimationEnd",this.resetAnimation),i(a,"MSAnimationEnd",this.resetAnimation)),a}},{key:"applyStyle",value:function(a,b){var c=this,d=a.getAttribute("data-wow-duration"),e=a.getAttribute("data-wow-delay"),f=a.getAttribute("data-wow-iteration");return this.animate(function(){return c.customStyle(a,b,d,e,f)})}},{key:"resetStyle",value:function(){for(var a=0;a<this.boxes.length;a++){var b=this.boxes[a];b.style.visibility="visible"}}},{key:"resetAnimation",value:function(a){if(a.type.toLowerCase().indexOf("animationend")>=0){var b=a.target||a.srcElement;b.className=b.className.replace(this.config.animateClass,"").trim()}}},{key:"customStyle",value:function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a}},{key:"vendorSet",value:function(a,b){for(var c in b)if(b.hasOwnProperty(c)){var d=b[c];a[""+c]=d;for(var e=0;e<this.vendors.length;e++){var f=this.vendors[e];a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=d}}}},{key:"vendorCSS",value:function(a,b){for(var c=q(a),d=c.getPropertyCSSValue(b),e=0;e<this.vendors.length;e++){var f=this.vendors[e];d=d||c.getPropertyCSSValue("-"+f+"-"+b)}return d}},{key:"animationName",value:function(a){var b=void 0;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=q(a).getPropertyValue("animation-name")}return"none"===b?"":b}},{key:"cacheAnimationName",value:function(a){return this.animationNameCache.set(a,this.animationName(a))}},{key:"cachedAnimationName",value:function(a){return this.animationNameCache.get(a)}},{key:"scrollHandler",value:function(){this.scrolled=!0}},{key:"scrollCallback",value:function(){if(this.scrolled){this.scrolled=!1;for(var a=[],b=0;b<this.boxes.length;b++){var c=this.boxes[b];if(c){if(this.isVisible(c)){this.show(c);continue}a.push(c)}}this.boxes=a,this.boxes.length||this.config.live||this.stop()}}},{key:"offsetTop",value:function(a){for(;void 0===a.offsetTop;)a=a.parentNode;for(var b=a.offsetTop;a.offsetParent;)a=a.offsetParent,b+=a.offsetTop;return b}},{key:"isVisible",value:function(a){var b=a.getAttribute("data-wow-offset")||this.config.offset,c=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,d=c+Math.min(this.element.clientHeight,k())-b,e=this.offsetTop(a),f=e+a.clientHeight;return d>=e&&f>=c}},{key:"disabled",value:function(){return!this.config.mobile&&f(navigator.userAgent)}}]),a}();b["default"]=r,a.exports=b["default"]});]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/** * Minified by jsDelivr using Terser v5.9.0. * Original file: /npm/hexo-butterfly-footer-beautify@1.0.5/lib/swiperbdage_init.js * * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files */var bdageswiper=new Swiper("#ghbdages",{direction:"vertical",passiveListeners:!0,spaceBetween:30,loop:!0,autoplay:{disableOnInteraction:!0,delay:1500},mousewheel:!0}),ghbdage=document.getElementById("ghbdages");ghbdage.onmouseenter=function(){bdageswiper.autoplay.stop()},ghbdage.onmouseleave=function(){bdageswiper.autoplay.start()};//# sourceMappingURL=/sm/19ff7cf915661958cf966ce6c304ed262ecb1d20f6a25918fded87f4163483df.map]]></content>
       
     </entry>
     
